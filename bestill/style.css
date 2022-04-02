@@ -1,0 +1,23 @@
+.pizzalist {
+    padding: 0;
+    list-style: none;
+}
+
+.pizzalist li {
+    display: block;
+    float: left;
+    margin: 5px;
+}
+
+.pizzalist img {
+    width: 250px;
+    height: 250px;
+    display: block;
+    margin-bottom: 5px;
+}
+
+.orderbutton {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+}

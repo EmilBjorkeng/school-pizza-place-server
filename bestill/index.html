@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Pizza Plass AS</title>
+        <link rel="stylesheet", type="text/css", href="/bestill/style.css">
+    </head>
+    <body>
+        <h1>Bestill</h1>
+        <ul class="pizzalist">
+            <li>
+                <h2>Plain Pizza</h2>
+                <img src="/images/PlainPizza.jpeg" alt="Plain Pizza">
+                <button onclick="addPizza('PlainPizza')">Add Pizza</button>
+                <button onclick="removePizza('PlainPizza')">Remove Pizza</button>
+                <p id="PlainPizzaAmt">0</p>
+            </li>
+            <li>
+                <h2>Pepperoni Pizza</h2>
+                <img src="/images/PepperoniPizza.jpeg" alt="Pepperoni Pizza">
+                <button onclick="addPizza('PepperoniPizza')">Add Pizza</button>
+                <button onclick="removePizza('PepperoniPizza')">Remove Pizza</button>
+                <p id="PepperoniPizzaAmt">0</p>
+            </li>
+            <li>
+                <h2>Taco Pizza</h2>
+                <img src="/images/TacoPizza.jpeg" alt="Taco Pizza">
+                <button onclick="addPizza('TacoPizza')">Add Pizza</button>
+                <button onclick="removePizza('TacoPizza')">Remove Pizza</button>
+                <p id="TacoPizzaAmt">0</p>
+            </li>
+            <li>
+                <h2>Our Special Pizza</h2>
+                <img src="/images/SpecialPizza.jpeg" alt="Special Pizza">
+                <button onclick="addPizza('SpecialPizza')">Add Pizza</button>
+                <button onclick="removePizza('SpecialPizza')">Remove Pizza</button>
+                <p id="SpecialPizzaAmt">0</p>
+            </li>
+        </ul>
+        <button class="orderbutton" onclick="order()">Order</button>
+        <script type="text/javascript", src="/bestill/script.js"></script>
+    </body>
+</html>
