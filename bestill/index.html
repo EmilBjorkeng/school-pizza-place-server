@@ -10,30 +10,55 @@
             <li>
                 <h2>Plain Pizza</h2>
                 <img src="/images/PlainPizza.jpeg" alt="Plain Pizza">
-                <button onclick="addPizza('PlainPizza')">Add Pizza</button>
-                <button onclick="removePizza('PlainPizza')">Remove Pizza</button>
-                <p id="PlainPizzaAmt">0</p>
+                Liten: <input type="checkbox" id="LitenPlainPizza">
+                Medium: <input type="checkbox" id="MediumPlainPizza">
+                Stor: <input type="checkbox" id="StorPlainPizza">
+                <br>
+                Ekstra info:<br>
+                <input type="text" id="PlainPizzaExtra">
+                <br>
+                <button onclick="addPizza('PlainPizza')">Legg til Pizza</button>
             </li>
             <li>
                 <h2>Pepperoni Pizza</h2>
                 <img src="/images/PepperoniPizza.jpeg" alt="Pepperoni Pizza">
-                <button onclick="addPizza('PepperoniPizza')">Add Pizza</button>
-                <button onclick="removePizza('PepperoniPizza')">Remove Pizza</button>
-                <p id="PepperoniPizzaAmt">0</p>
+                Liten: <input type="checkbox" id="LitenPepperoniPizza">
+                Medium: <input type="checkbox" id="MediumPepperoniPizza">
+                Stor: <input type="checkbox" id="StorPepperoniPizza">
+                <br>
+                Ekstra info:<br>
+                <input type="text" id="PepperoniPizzaExtra">
+                <br>
+                <button onclick="addPizza('PepperoniPizza')">Legg til Pizza</button>
             </li>
             <li>
                 <h2>Taco Pizza</h2>
                 <img src="/images/TacoPizza.jpeg" alt="Taco Pizza">
-                <button onclick="addPizza('TacoPizza')">Add Pizza</button>
-                <button onclick="removePizza('TacoPizza')">Remove Pizza</button>
-                <p id="TacoPizzaAmt">0</p>
+                Liten: <input type="checkbox" id="LitenTacoPizza">
+                Medium: <input type="checkbox" id="MediumTacoPizza">
+                Stor: <input type="checkbox" id="StorTacoPizza">
+                <br>
+                Ekstra info:<br>
+                <input type="text" id="TacoPizzaExtra">
+                <br>
+                <button onclick="addPizza('TacoPizza')">Legg til Pizza</button>
             </li>
             <li>
                 <h2>Our Special Pizza</h2>
                 <img src="/images/SpecialPizza.jpeg" alt="Special Pizza">
-                <button onclick="addPizza('SpecialPizza')">Add Pizza</button>
-                <button onclick="removePizza('SpecialPizza')">Remove Pizza</button>
-                <p id="SpecialPizzaAmt">0</p>
+                Liten: <input type="checkbox" id="LitenSpecialPizza">
+                Medium: <input type="checkbox" id="MediumSpecialPizza">
+                Stor: <input type="checkbox" id="StorSpecialPizza">
+                <br>
+                Ekstra info:<br>
+                <input type="text" id="SpecialPizzaExtra">
+                <br>
+                <button onclick="addPizza('SpecialPizza')">Legg til Pizza</button>
+            </li>
+        </ul>
+        <ul id="orderlist">
+            <li>
+                <h3 style="text-align: center; margin: 0;">Orders</h3>
             </li>
         </ul>
         <button class="orderbutton" onclick="order()">Order</button>

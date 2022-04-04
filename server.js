@@ -3,26 +3,44 @@ var app = express();
 var bodyParser = require('body-parser');
 var body_parser = bodyParser.text()
 
+let data = {}
+let id = 0
+
 // html
 app.use(express.static('public'));
 app.get('/', function (req, res) {
-   res.sendFile( __dirname + "/index.html");
+   res.sendFile( __dirname + "/frontpage/index.html");
 })
 app.get('/bestill', function (req, res) {
    res.sendFile( __dirname + "/bestill/index.html");
 })
+app.get('/kontakt_oss', function (req, res) {
+   res.sendFile( __dirname + "/kontakt_oss/index.html");
+})
+app.get('/om_oss', function (req, res) {
+   res.sendFile( __dirname + "/om_oss/index.html");
+})
 
 // CSS
+app.get('/style.css', function (req, res) {
+   res.sendFile( __dirname + "/frontpage/style.css");
+})
 app.get('/bestill/style.css', function (req, res) {
    res.sendFile( __dirname + "/bestill/style.css");
 })
 
 // JavaScript
+app.get('/script.js', function (req, res) {
+   res.sendFile( __dirname + "/frontpage/script.js");
+})
 app.get('/bestill/script.js', function (req, res) {
    res.sendFile( __dirname + "/bestill/script.js");
 })
 
 // Images
+app.get('/images/PizzaBanner.png', function (req, res) {
+   res.sendFile( __dirname + "/images/PizzaBanner.png");
+})
 app.get('/images/PlainPizza.jpeg', function (req, res) {
    res.sendFile( __dirname + "/images/PlainPizza.jpeg");
 })
@@ -36,6 +54,12 @@ app.get('/images/SpecialPizza.jpeg', function (req, res) {
    res.sendFile( __dirname + "/images/SpecialPizza.jpeg");
 })
 
+// Get Data
+app.get('/Data', function (req, res) {
+   res.writeHead(200, {'Content-Type': 'text/plain'})
+   res.end(JSON.stringify(data))
+})
+
 // 404 Page
 app.get('*', function (req, res) {
    res.sendFile( __dirname + "/404.html");
@@ -43,7 +67,9 @@ app.get('*', function (req, res) {
 
 // POST
 app.post('/order_sent', body_parser, function (req, res) {
-   console.log(req.body);
+   //console.log(req.body);
+   data[id] = req.body;
+   id++;
 })
 
 var server = app.listen(8081, function () {
