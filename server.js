@@ -6,63 +6,74 @@ var body_parser = bodyParser.text()
 let data = {}
 let id = 0
 
-// html
+// HTML
 app.use(express.static('public'));
 app.get('/', function (req, res) {
-   res.sendFile( __dirname + "/frontpage/index.html");
+   res.sendFile(__dirname + "/frontpage/index.html");
 })
 app.get('/bestill', function (req, res) {
-   res.sendFile( __dirname + "/bestill/index.html");
+   res.sendFile(__dirname + "/bestill/index.html");
 })
 app.get('/kontakt_oss', function (req, res) {
-   res.sendFile( __dirname + "/kontakt_oss/index.html");
+   res.sendFile(__dirname + "/kontakt_oss/index.html");
 })
 app.get('/om_oss', function (req, res) {
-   res.sendFile( __dirname + "/om_oss/index.html");
+   res.sendFile(__dirname + "/om_oss/index.html");
 })
 
 // CSS
 app.get('/style.css', function (req, res) {
-   res.sendFile( __dirname + "/frontpage/style.css");
+   res.sendFile(__dirname + "/frontpage/style.css");
 })
 app.get('/bestill/style.css', function (req, res) {
-   res.sendFile( __dirname + "/bestill/style.css");
+   res.sendFile(__dirname + "/bestill/style.css");
 })
 
 // JavaScript
 app.get('/script.js', function (req, res) {
-   res.sendFile( __dirname + "/frontpage/script.js");
+   res.sendFile(__dirname + "/frontpage/script.js");
 })
 app.get('/bestill/script.js', function (req, res) {
-   res.sendFile( __dirname + "/bestill/script.js");
+   res.sendFile(__dirname + "/bestill/script.js");
 })
 
 // Images
-app.get('/images/PizzaBanner.png', function (req, res) {
-   res.sendFile( __dirname + "/images/PizzaBanner.png");
+app.get('/images/PizzaBanner.jpeg', function (req, res) {
+   res.sendFile(__dirname + "/images/PizzaBanner.jpeg");
 })
 app.get('/images/PlainPizza.jpeg', function (req, res) {
-   res.sendFile( __dirname + "/images/PlainPizza.jpeg");
+   res.sendFile(__dirname + "/images/PlainPizza.jpeg");
 })
 app.get('/images/PepperoniPizza.jpeg', function (req, res) {
-   res.sendFile( __dirname + "/images/PepperoniPizza.jpeg");
+   res.sendFile(__dirname + "/images/PepperoniPizza.jpeg");
 })
 app.get('/images/TacoPizza.jpeg', function (req, res) {
-   res.sendFile( __dirname + "/images/TacoPizza.jpeg");
+   res.sendFile(__dirname + "/images/TacoPizza.jpeg");
 })
 app.get('/images/SpecialPizza.jpeg', function (req, res) {
-   res.sendFile( __dirname + "/images/SpecialPizza.jpeg");
+   res.sendFile(__dirname + "/images/SpecialPizza.jpeg");
+})
+
+// Icons
+app.get('/icons/PizzaIcon.png', function (req, res) {
+   res.sendFile(__dirname + "/icons/PizzaIcon.png");
+})
+app.get('/icons/PhoneIcon.png', function (req, res) {
+   res.sendFile(__dirname + "/icons/PhoneIcon.png");
+})
+app.get('/icons/AboutIcon.png', function (req, res) {
+   res.sendFile(__dirname + "/icons/AboutIcon.png");
 })
 
 // Get Data
-app.get('/Data', function (req, res) {
+app.get('/data', function (req, res) {
    res.writeHead(200, {'Content-Type': 'text/plain'})
    res.end(JSON.stringify(data))
 })
 
 // 404 Page
 app.get('*', function (req, res) {
-   res.sendFile( __dirname + "/404.html");
+   res.sendFile(__dirname + "/404.html");
 })
 
 // POST

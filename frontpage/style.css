@@ -1,4 +1,4 @@
-html body {
+html, body {
 	margin: 0;
 }
 
@@ -7,42 +7,63 @@ body {
 	overflow: hidden;
 }
 
-.top {
+#top {
 	background-color: black;
 	overflow: hidden;
 }
 
-.top a {
-	padding: 10px 15px;	
+#top a {
+	padding: 10px 15px;
+	font-size: 17px;
 	text-align: center;
-	float:left;
+	float: left;
 	text-decoration: none;
 	color: white
 }
-.top a:hover {
+#top a:hover {
 	background-color: white;
 	color:black;
 }
-.top a.active {
-	background-color: darkblue;	
+#top a.active {
+	background-color: darkslategrey;
 	color:white;
 }
 
-.banner {
-	text-align: center;
-	margin-top: 100px;
-}
-
 .banner img {
-	width: 100%;
+	min-width: 100vw;
 	position: absolute;
 	z-index: -999;
 	top: 0;
-	left: 0
+	display: block;
 }
 
 .banner h1 {
 	font-size: 70px;
-	text-shadow: -2px -2px 0 #FFFF, 2px -2px 0 #FFFF, -2px 2px 0 #FFFF, 2px 2px 0 #FFFF;
+	text-shadow: -1px -1px 0 #FFFF, 1px -1px 0 #FFFF, -1px 1px 0 #FFFF, 1px 1px 0 #FFFF;
 	color: darkslategrey;
+	text-align: center;
+	padding-top: 100px;
+}
+
+#phonemenu {
+	display: none;
+	margin-top: 330px;
+	float: up;
+	font-size: 50px;
+	text-align: center;
+}
+#phonemenu a {
+	background-color: red;
+	color: white;
+	display: block;
+	margin: 20px;
+	padding: 40px;
+	border-radius: 20px;
+	text-decoration: none;
+}
+
+#phonemenu img {
+	height: 75px;
+	vertical-align: middle;
+	padding-right: 40px;
 }
