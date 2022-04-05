@@ -2,17 +2,12 @@ html, body {
 	margin: 0;
 }
 
-body {
+#top-bar {
 	background-color: black;
 	overflow: hidden;
 }
 
-#top {
-	background-color: black;
-	overflow: hidden;
-}
-
-#top a {
+#top-bar a {
 	padding: 10px 15px;
 	font-size: 17px;
 	text-align: center;
@@ -20,39 +15,45 @@ body {
 	text-decoration: none;
 	color: white
 }
-#top a:hover {
+#top-bar a:hover {
 	background-color: white;
 	color:black;
 }
-#top a.active {
+#top-bar a.active {
 	background-color: darkslategrey;
 	color:white;
 }
 
 .banner img {
-	min-width: 100vw;
-	position: absolute;
-	z-index: -999;
-	top: 0;
-	display: block;
+	width: 100%;
 }
 
 .banner h1 {
-	font-size: 70px;
+	font-size: 7vw;
 	text-shadow: -1px -1px 0 #FFFF, 1px -1px 0 #FFFF, -1px 1px 0 #FFFF, 1px 1px 0 #FFFF;
 	color: darkslategrey;
+	position: absolute;
+	width: 100%;
+	top: 10vw;
 	text-align: center;
-	padding-top: 100px;
 }
 
-#phonemenu {
+.banner h3 {
+	font-size: 3vw;
+	text-shadow: -1px -1px 0 rgb(0, 0, 0), 1px -1px 0 rgb(0, 0, 0), -1px 1px 0 rgb(0, 0, 0), 1px 1px 0 rgb(0, 0, 0);
+	color: white;
+	position: absolute;
+	width: 100%;
+	top: 20vw;
+	text-align: center;
+}
+
+#phone-menu {
 	display: none;
-	margin-top: 330px;
-	float: up;
 	font-size: 50px;
 	text-align: center;
 }
-#phonemenu a {
+#phone-menu a {
 	background-color: red;
 	color: white;
 	display: block;
@@ -62,8 +63,17 @@ body {
 	text-decoration: none;
 }
 
-#phonemenu img {
+#phone-menu img {
 	height: 75px;
 	vertical-align: middle;
 	padding-right: 40px;
+}
+
+#github {
+	position: absolute;
+	top: 0;
+	right: 0;
+	filter: brightness(100);
+	width: 25px;
+	margin: 7px;
 }

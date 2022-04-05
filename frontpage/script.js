@@ -3,12 +3,8 @@ let phones = /android|iphone/i
 let isMobileDevice = phones.test(details);
 
 if (isMobileDevice) {
-    document.getElementById('top').style.display = "none";
-    document.getElementById('phonemenu').style.display = "block";
-    document.getElementById('bannerimg').style.width = "100%";
-    document.getElementById('bannertext').style.fontSize = "75px";
-}
-
-function menulines() {
-    
+    document.getElementById('top-bar').style.display = "none";
+    document.getElementById('phone-menu').style.display = "block";
+    document.getElementById('bannerText').style.fontSize = "75px";
+    document.getElementById('github').style.display = "none";
 }

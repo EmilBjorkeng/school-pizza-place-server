@@ -64,6 +64,9 @@ app.get('/icons/PhoneIcon.png', function (req, res) {
 app.get('/icons/AboutIcon.png', function (req, res) {
    res.sendFile(__dirname + "/icons/AboutIcon.png");
 })
+app.get('/icons/GitHubIcon.png', function (req, res) {
+   res.sendFile(__dirname + "/icons/GitHubIcon.png");
+})
 
 // Get Data
 app.get('/data', function (req, res) {
