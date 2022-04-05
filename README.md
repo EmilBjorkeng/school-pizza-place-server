@@ -9,4 +9,4 @@ We split the tasks around one got networking (setting up potential network plas 
 > Then you clone the repository into a folder, open a terminal and type `npm init` and `npm install express --save`. 
 > To run it just type `node server.js`. Now it should be live at `localhost:8081` or `your.ip.here:8181` for other people on your network.
 
-I should note that the local server was never made for anyone else to download and try it so no guarantees. Tho I would not see any reason it worldn't work.
+I should note that the local server was never made for anyone else to download and try it so no guarantees. Tho I would not see any reason it worldn't work. The site is also in Norwegain because of the simple fact that we are Norwegian.
