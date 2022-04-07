@@ -15,10 +15,12 @@ html, body {
 	text-decoration: none;
 	color: white
 }
+
 #top-bar a:hover {
 	background-color: white;
 	color:black;
 }
+
 #top-bar a.active {
 	background-color: darkslategrey;
 	color:white;
