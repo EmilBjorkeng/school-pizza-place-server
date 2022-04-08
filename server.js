@@ -31,6 +31,9 @@ app.get('/bestill/style.css', function (req, res) {
 app.get('/kontakt_oss/style.css', function (req, res) {
    res.sendFile(__dirname + "/kontakt_oss/style.css");
 })
+app.get('/om_oss/style.css', function (req, res) {
+   res.sendFile(__dirname + "/om_oss/style.css");
+})
 
 // JavaScript
 app.get('/script.js', function (req, res) {
@@ -41,6 +44,9 @@ app.get('/bestill/script.js', function (req, res) {
 })
 app.get('/kontakt_oss/script.js', function (req, res) {
    res.sendFile(__dirname + "/kontakt_oss/script.js");
+})
+app.get('/om_oss/script.js', function (req, res) {
+   res.sendFile(__dirname + "/om_oss/script.js");
 })
 
 // Images
@@ -61,6 +67,9 @@ app.get('/images/SpecialPizza.jpeg', function (req, res) {
 })
 app.get('/images/GoogleMaps.png', function (req, res) {
    res.sendFile(__dirname + "/images/GoogleMaps.png");
+})
+app.get('/images/oss.png', function (req, res) {
+   res.sendFile(__dirname + "/images/oss.png");
 })
 
 // Icons
