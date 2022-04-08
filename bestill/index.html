@@ -5,14 +5,20 @@
         <link rel="stylesheet", type="text/css", href="/bestill/style.css">
     </head>
     <body>
+        <div id="top-bar">
+			<a href="/">Hjem</a>
+			<a href="/bestill" class="active">Bestill</a> 
+			<a href="/kontakt_oss">Kontakt oss</a>
+			<a href="/om_oss">Om oss</a>
+		</div>
         <h1>Bestill</h1>
         <ul class="pizzalist">
             <li>
                 <h2>Plain Pizza</h2>
                 <img src="/images/PlainPizza.jpeg" alt="Plain Pizza">
-                Liten: <input type="checkbox" id="LitenPlainPizza">
-                Medium: <input type="checkbox" id="MediumPlainPizza">
-                Stor: <input type="checkbox" id="StorPlainPizza">
+                Liten: <input type="checkbox" id="LitenPlainPizza" onclick="checkBox('MediumPlainPizza', 'StorPlainPizza')">
+                Medium: <input type="checkbox" id="MediumPlainPizza" onclick="checkBox('LitenPlainPizza', 'StorPlainPizza')" class="start-checked">
+                Stor: <input type="checkbox" id="StorPlainPizza" onclick="checkBox('LitenPlainPizza', 'MediumPlainPizza')">
                 <br>
                 Ekstra info:<br>
                 <input type="text" id="PlainPizzaExtra">
@@ -22,9 +28,9 @@
             <li>
                 <h2>Pepperoni Pizza</h2>
                 <img src="/images/PepperoniPizza.jpeg" alt="Pepperoni Pizza">
-                Liten: <input type="checkbox" id="LitenPepperoniPizza">
-                Medium: <input type="checkbox" id="MediumPepperoniPizza">
-                Stor: <input type="checkbox" id="StorPepperoniPizza">
+                Liten: <input type="checkbox" id="LitenPepperoniPizza" onclick="checkBox('MediumPepperoniPizza', 'StorPepperoniPizza')">
+                Medium: <input type="checkbox" id="MediumPepperoniPizza" onclick="checkBox('LitenPepperoniPizza', 'StorPepperoniPizza')" class="start-checked">
+                Stor: <input type="checkbox" id="StorPepperoniPizza" onclick="checkBox('LitenPepperoniPizza', 'MediumPepperoniPizza')">
                 <br>
                 Ekstra info:<br>
                 <input type="text" id="PepperoniPizzaExtra">
@@ -34,9 +40,9 @@
             <li>
                 <h2>Taco Pizza</h2>
                 <img src="/images/TacoPizza.jpeg" alt="Taco Pizza">
-                Liten: <input type="checkbox" id="LitenTacoPizza">
-                Medium: <input type="checkbox" id="MediumTacoPizza">
-                Stor: <input type="checkbox" id="StorTacoPizza">
+                Liten: <input type="checkbox" id="LitenTacoPizza" onclick="checkBox('MediumTacoPizza', 'StorTacoPizza')">
+                Medium: <input type="checkbox" id="MediumTacoPizza" onclick="checkBox('LitenTacoPizza', 'StorTacoPizza')" class="start-checked">
+                Stor: <input type="checkbox" id="StorTacoPizza" onclick="checkBox('LitenTacoPizza', 'MediumTacoPizza')">
                 <br>
                 Ekstra info:<br>
                 <input type="text" id="TacoPizzaExtra">
@@ -45,10 +51,10 @@
             </li>
             <li>
                 <h2>Our Special Pizza</h2>
-                <img src="/images/SpecialPizza.jpeg" alt="Special Pizza">
-                Liten: <input type="checkbox" id="LitenSpecialPizza">
-                Medium: <input type="checkbox" id="MediumSpecialPizza">
-                Stor: <input type="checkbox" id="StorSpecialPizza">
+                <img src="/images/SpecialPizza.jpeg" alt="Special Pizza" >
+                Liten: <input type="checkbox" id="LitenSpecialPizza" onclick="checkBox('MediumSpecialPizza', 'StorSpecialPizza')">
+                Medium: <input type="checkbox" id="MediumSpecialPizza" onclick="checkBox('LitenSpecialPizza', 'StorSpecialPizza')" class="start-checked">
+                Stor: <input type="checkbox" id="StorSpecialPizza" onclick="checkBox('LitenSpecialPizza', 'MediumSpecialPizza')">
                 <br>
                 Ekstra info:<br>
                 <input type="text" id="SpecialPizzaExtra">
@@ -57,11 +63,16 @@
             </li>
         </ul>
         <ul id="orderlist">
+            <button onclick="clearOrder()">Clear Order</button>
             <li>
                 <h3 style="text-align: center; margin: 0;">Orders</h3>
             </li>
         </ul>
-        <button class="orderbutton" onclick="order()">Order</button>
-        <script type="text/javascript", src="/bestill/script.js"></script>
+        <a class="orderbutton" href="/bestill/kjop">Order</a>
+        <div id="cookie">
+            <span>Vi bruker cookies for å huske handlekurven din</span><br>
+            <button onclick="cookieButton()">OK</button>
+        </div>
+        <script type="text/javascript", src="/bestill/script.js" defer></script>
     </body>
 </html>

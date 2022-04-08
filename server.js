@@ -20,6 +20,9 @@ app.get('/kontakt_oss', function (req, res) {
 app.get('/om_oss', function (req, res) {
    res.sendFile(__dirname + "/om_oss/index.html");
 })
+app.get('/bestill/kjop', function (req, res) {
+   res.sendFile(__dirname + "/bestill/kjop/index.html");
+})
 
 // CSS
 app.get('/style.css', function (req, res) {
@@ -34,6 +37,9 @@ app.get('/kontakt_oss/style.css', function (req, res) {
 app.get('/om_oss/style.css', function (req, res) {
    res.sendFile(__dirname + "/om_oss/style.css");
 })
+app.get('/bestill/kjop/style.css', function (req, res) {
+   res.sendFile(__dirname + "/bestill/kjop/style.css");
+})
 
 // JavaScript
 app.get('/script.js', function (req, res) {
@@ -47,6 +53,9 @@ app.get('/kontakt_oss/script.js', function (req, res) {
 })
 app.get('/om_oss/script.js', function (req, res) {
    res.sendFile(__dirname + "/om_oss/script.js");
+})
+app.get('/bestill/kjop/script.js', function (req, res) {
+   res.sendFile(__dirname + "/bestill/kjop/script.js");
 })
 
 // Images
