@@ -1,7 +1,11 @@
-var express = require('express');
-var app = express();
-var bodyParser = require('body-parser');
-var body_parser = bodyParser.text()
+const express = require('express');
+const bodyParser = require('body-parser');
+const bcrypt = require('bcryptjs');
+
+const app = express();
+const body_parser = bodyParser.text()
+const login_body_parser = bodyParser.urlencoded({ extended: true })
+const accounts = require("./accounts.json");
 
 let data = {}
 let id = 0
@@ -20,8 +24,8 @@ app.get('/kontakt_oss', function (req, res) {
 app.get('/om_oss', function (req, res) {
    res.sendFile(__dirname + "/om_oss/index.html");
 })
-app.get('/bestill/kjop', function (req, res) {
-   res.sendFile(__dirname + "/bestill/kjop/index.html");
+app.get('/login', function (req, res) {
+   res.sendFile(__dirname + "/login.html");
 })
 
 // CSS
@@ -37,9 +41,6 @@ app.get('/kontakt_oss/style.css', function (req, res) {
 app.get('/om_oss/style.css', function (req, res) {
    res.sendFile(__dirname + "/om_oss/style.css");
 })
-app.get('/bestill/kjop/style.css', function (req, res) {
-   res.sendFile(__dirname + "/bestill/kjop/style.css");
-})
 
 // JavaScript
 app.get('/script.js', function (req, res) {
@@ -53,9 +54,6 @@ app.get('/kontakt_oss/script.js', function (req, res) {
 })
 app.get('/om_oss/script.js', function (req, res) {
    res.sendFile(__dirname + "/om_oss/script.js");
-})
-app.get('/bestill/kjop/script.js', function (req, res) {
-   res.sendFile(__dirname + "/bestill/kjop/script.js");
 })
 
 // Images
@@ -108,9 +106,34 @@ app.get('*', function (req, res) {
 
 // POST
 app.post('/order_sent', body_parser, function (req, res) {
-   //console.log(req.body);
    data[id] = req.body;
    id++;
+})
+app.post('/order_remove', body_parser, function (req, res) {
+   removeData = req.body.split(',');
+   if (removeData[0] !== "SeacretKeyForValidation") return;
+   delete data[removeData[1]];
+})
+app.post('/staff', login_body_parser, function (req, res) {
+   password = req.body.password;
+   username = req.body.username;
+
+   // Check is username exists
+   let found = false;
+   var count = Object.keys(accounts).length;
+   for (let i = 0; i < count; i++) {
+      if (username == Object.keys(accounts)[i]) {
+         found = true;
+         break;
+      }
+   }
+   if (!found) return res.end("Wrong username or password");
+
+   bcrypt.compare(password, accounts[username],
+      async function (err, isMatch) {
+         if (isMatch) return res.sendFile(__dirname + "/staff.html");
+         else return res.end("Wrong username or password");
+      });
 })
 
 var server = app.listen(8081, function () {

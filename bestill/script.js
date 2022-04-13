@@ -39,7 +39,7 @@ function addPizza(pizzaType) {
     }
     document.cookie = "order=" + "[" + string.substr(0, string.length - 1) + "]";
     // Edit order list
-    var ul = document.getElementById("orderlist");
+    var ul = document.getElementById('orderlist');
     let li = document.createElement('li');
     li.id = orderid;
     LastOrder = orderList.length - 1;
@@ -76,6 +76,19 @@ function clearOrder() {
     while (ul.childElementCount > 2) {
         ul.removeChild(ul.childNodes[5]);
     }
+}
+
+// Order
+function order() {
+    let string = "";
+    for (let i = 0; i < orderList.length; i++) {
+        string += "[" + orderList[i] + "],"
+    }
+    fetch("/order_sent", {
+        method: "POST", 
+        body: "[" + string.substr(0, string.length - 1) + "]"
+    });
+    clearOrder();
 }
 
 // Get cookie
@@ -139,7 +152,7 @@ if (getCookie("order") != "[]" && getCookie("order"))
         }
     }
     // Edit order list
-    var ul = document.getElementById("orderlist");
+    var ul = document.getElementById('orderlist');
     for (let i = 0; i < orderList.length; i++) {
         let li = document.createElement('li');
         li.id = orderid;

@@ -58,7 +58,6 @@ html, body {
 
 #orderlist li {
     display: block;
-    float: up;
     margin: 5px;
     max-width: 150px;
     border-style: solid;
