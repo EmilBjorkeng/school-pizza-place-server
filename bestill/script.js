@@ -1,17 +1,37 @@
+var textLimit = 35;
+var orderList = [];
+var orderid = 0;
+
 // Start checked
 for (let i = 0; i < 4; i++) {
     document.getElementsByClassName('start-checked')[i].checked = true;
 }
-
 function checkBox(box1, box2) {
     document.getElementById(box1).checked = false;
     document.getElementById(box2).checked = false;
 }
 
-let orderList = [];
-let orderid = 0;
+// Word counter
+for (let i = 0; i < 4; i++) {
+    let textBox = document.getElementsByClassName('input-box')[i];
+    let result = document.getElementsByClassName('word-limit')[i];
+    result.textContent = 0 + "/" + textLimit;
+    textBox.addEventListener("input",function(){
+        let textLength = textBox.value.length;
+        result.textContent = textLength + "/" + textLimit;
+    
+        if(textLength > textLimit) result.style.color = "#ff2851";
+        else result.style.color = "#31821b";
+    });
+}
 
 function addPizza(pizzaType) {
+    // Check for word count
+    let textBox = document.getElementById(pizzaType + 'Extra');
+    if (textBox.value.length > textLimit) {
+        alert("Du har for mange karakterer i ekstra info boksen");
+        return;
+    }
     // Remove Spamming you can't even trust your own group partners ):<
     if (orderList.length > 6) {
         alert("Bro, du har lagt til litt vel mye nå");
