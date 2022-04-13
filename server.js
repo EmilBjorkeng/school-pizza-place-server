@@ -100,8 +100,14 @@ app.get('/data', function (req, res) {
 })
 
 // 404 Page
+app.get('/404/style.css', function (req, res) {
+   res.sendFile(__dirname + "/404/style.css");
+})
+app.get('/images/PizzaMark.png', function (req, res) {
+   res.sendFile(__dirname + "/images/PizzaMark.png");
+})
 app.get('*', function (req, res) {
-   res.sendFile(__dirname + "/404.html");
+   res.sendFile(__dirname + "/404/index.html");
 })
 
 // POST
@@ -136,6 +142,7 @@ app.post('/staff', login_body_parser, function (req, res) {
       });
 })
 
+// Create Server
 var server = app.listen(8081, function () {
     var port = server.address().port
     console.log("Server listening at port %s", port)
