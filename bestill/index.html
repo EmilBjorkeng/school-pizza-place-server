@@ -11,71 +11,101 @@
 			<a href="/kontakt_oss">Kontakt oss</a>
 			<a href="/om_oss">Om oss</a>
 		</div>
-        <h1>Bestill</h1>
-        <ul class="pizzalist">
-            <li>
-                <h2>Plain Pizza</h2>
-                <img src="/images/PlainPizza.jpeg" alt="Plain Pizza">
-                Liten: <input type="checkbox" id="LitenPlainPizza" onclick="checkBox('MediumPlainPizza', 'StorPlainPizza')">
-                Medium: <input type="checkbox" id="MediumPlainPizza" onclick="checkBox('LitenPlainPizza', 'StorPlainPizza')" class="start-checked">
-                Stor: <input type="checkbox" id="StorPlainPizza" onclick="checkBox('LitenPlainPizza', 'MediumPlainPizza')">
-                <br>
-                Ekstra info:<br>
-                <input type="text" class="input-box" id="PlainPizzaExtra">
-                <br>
-                <button onclick="addPizza('PlainPizza')">Legg til Pizza</button>
-                <span class="word-limit"></span>
-            </li>
-            <li>
-                <h2>Pepperoni Pizza</h2>
-                <img src="/images/PepperoniPizza.jpeg" alt="Pepperoni Pizza">
-                Liten: <input type="checkbox" id="LitenPepperoniPizza" onclick="checkBox('MediumPepperoniPizza', 'StorPepperoniPizza')">
-                Medium: <input type="checkbox" id="MediumPepperoniPizza" onclick="checkBox('LitenPepperoniPizza', 'StorPepperoniPizza')" class="start-checked">
-                Stor: <input type="checkbox" id="StorPepperoniPizza" onclick="checkBox('LitenPepperoniPizza', 'MediumPepperoniPizza')">
-                <br>
-                Ekstra info:<br>
-                <input type="text" class="input-box" id="PepperoniPizzaExtra">
-                <br>
-                <button onclick="addPizza('PepperoniPizza')">Legg til Pizza</button>
-                <span class="word-limit"></span>
-            </li>
-            <li>
-                <h2>Taco Pizza</h2>
-                <img src="/images/TacoPizza.jpeg" alt="Taco Pizza">
-                Liten: <input type="checkbox" id="LitenTacoPizza" onclick="checkBox('MediumTacoPizza', 'StorTacoPizza')">
-                Medium: <input type="checkbox" id="MediumTacoPizza" onclick="checkBox('LitenTacoPizza', 'StorTacoPizza')" class="start-checked">
-                Stor: <input type="checkbox" id="StorTacoPizza" onclick="checkBox('LitenTacoPizza', 'MediumTacoPizza')">
-                <br>
-                Ekstra info:<br>
-                <input type="text" class="input-box" id="TacoPizzaExtra">
-                <br>
-                <button onclick="addPizza('TacoPizza')">Legg til Pizza</button>
-                <span class="word-limit"></span>
-
-            </li>
-            <li>
-                <h2>Our Special Pizza</h2>
-                <img src="/images/SpecialPizza.jpeg" alt="Special Pizza" >
-                Liten: <input type="checkbox" id="LitenSpecialPizza" onclick="checkBox('MediumSpecialPizza', 'StorSpecialPizza')">
-                Medium: <input type="checkbox" id="MediumSpecialPizza" onclick="checkBox('LitenSpecialPizza', 'StorSpecialPizza')" class="start-checked">
-                Stor: <input type="checkbox" id="StorSpecialPizza" onclick="checkBox('LitenSpecialPizza', 'MediumSpecialPizza')">
-                <br>
-                Ekstra info:<br>
-                <input type="text" class="input-box" id="SpecialPizzaExtra">
-                <br>
-                <button onclick="addPizza('SpecialPizza')">Legg til Pizza</button>
-                <span class="word-limit"></span>
-            </li>
-        </ul>
-        <ul id="orderlist">
-            <button onclick="clearOrder()">Clear Order</button>
-            <li>
-                <h3 style="text-align: center; margin: 0;">Orders</h3>
-            </li>
-        </ul>
-        <button class="orderbutton" onclick="order()">Order</button>
+        <ul id="orderlist"></ul>
+        <div class="pizzaWrapper">
+            <ul class="pizzalist">
+                <!--Plain Pizza-->
+                <li>
+                    <img src="/images/PlainPizza.jpeg">
+                    <!--Info-->
+                    <h3>Plain Pizza</h3>
+                    <span>Ost, Saus</span><br>
+                    <small style="color:gray">Hvete, Gluten, Melk</small><br>
+                    <div class="line"></div>
+                    <!--Size Selection-->
+                    <input type="checkbox" class="Liten" onclick="checkBox(0, 0)">
+                    <small>100kr</small>
+                    <input type="checkbox" class="Medium" onclick="checkBox(1, 0)">
+                    <small>125kr</small>
+                    <input type="checkbox" class="Stor" onclick="checkBox(2, 0)">
+                    <small>150kr</small><br>
+                    <!--Text box-->
+                    <span>Ekstra info:</span><br>
+                    <input type="text" class="input-box"><br>
+                    <!--Button and word limit-->
+                    <button onclick="addPizza(0)">Legg til Pizza</button>
+                    <span class="word-limit"></span>
+                </li>
+                <!--Pepperoni Pizza-->
+                <li>
+                    <img src="/images/PepperoniPizza.jpeg">
+                    <!--Info-->
+                    <h3>Pepperoni Pizza</h3>
+                    <span>Ost, Saus, Pepperoni</span><br>
+                    <small style="color:gray">Hvete, Gluten, Melk, Soya</small><br>
+                    <div class="line"></div>
+                    <!--Size Selection-->
+                    <input type="checkbox" class="Liten" onclick="checkBox(0, 1)">
+                    <small>110kr</small>
+                    <input type="checkbox" class="Medium" onclick="checkBox(1, 1)">
+                    <small>135kr</small>
+                    <input type="checkbox" class="Stor" onclick="checkBox(2, 1)">
+                    <small>160kr</small><br>
+                    <!--Text box-->
+                    <span>Ekstra info:</span><br>
+                    <input type="text" class="input-box" id="PepperoniPizzaExtra"><br>
+                    <!--Button and word limit-->
+                    <button onclick="addPizza(1)">Legg til Pizza</button>
+                    <span class="word-limit"></span>
+                </li>
+                <!--Taco Pizza-->
+                <li>
+                    <img src="/images/TacoPizza.jpeg">
+                    <!--Info-->
+                    <h3>Taco Pizza</h3>
+                    <span>Natchos, Oliven, Salat, Tomat</span><br>
+                    <small style="color:gray">Hvete, Gluten, Melk, Soya</small><br>
+                    <div class="line"></div>
+                    <!--Size Selection-->
+                    <input type="checkbox" class="Liten" onclick="checkBox(0, 2)">
+                    <small>120kr</small>
+                    <input type="checkbox" class="Medium" onclick="checkBox(1, 2)">
+                    <small>145kr</small>
+                    <input type="checkbox" class="Stor" onclick="checkBox(2, 2)">
+                    <small>170kr</small><br>
+                    <!--Text box-->
+                    <span>Ekstra info:</span><br>
+                    <input type="text" class="input-box" id="TacoPizzaExtra"><br>
+                    <!--Button and word limit-->
+                    <button onclick="addPizza(2)">Legg til Pizza</button>
+                    <span class="word-limit"></span>
+                </li>
+                <!--Special Pizza-->
+                <li>
+                    <img src="/images/SpecialPizza.jpeg">
+                    <!--Info-->
+                    <h3>Vår Spesial Pizza</h3>
+                    <span>Ost, Saus, Pepperoni, Paprika</span><br>
+                    <small style="color:gray">Hvete, Gluten, Melk, Soya</small><br>
+                    <div class="line"></div>
+                    <!--Size Selection-->
+                    <input type="checkbox" class="Liten" onclick="checkBox(0, 3)">
+                    <small>120kr</small>
+                    <input type="checkbox" class="Medium" onclick="checkBox(1, 3)">
+                    <small>145kr</small>
+                    <input type="checkbox" class="Stor" onclick="checkBox(2, 3)">
+                    <small>170kr</small><br>
+                    <!--Text box-->
+                    <span>Ekstra info:</span><br>
+                    <input type="text" class="input-box" id="SpecialPizzaExtra"><br>
+                    <!--Button and word limit-->
+                    <button onclick="addPizza(3)">Legg til Pizza</button>
+                    <span class="word-limit"></span>
+                </li>
+            </ul>
+        </div>
         <div id="cookie">
-            <span>Vi bruker cookies for å huske handlekurven din</span><br>
+            <span>Vi bruker cookies for å huske handlekurven din. Cookiene er nødvendig for å siden skal fungere.</span><br>
             <button onclick="cookieButton()">OK</button>
         </div>
         <script type="text/javascript", src="/bestill/script.js" defer></script>

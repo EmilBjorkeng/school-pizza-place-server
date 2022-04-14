@@ -12,6 +12,7 @@
                 border-width: 2px;
                 border-style: solid;
                 margin: 5px;
+                padding: 3px;
             }
         </style>
     <body>
@@ -41,13 +42,13 @@
                             // Pizzas
                             for (let j = 0; j < list.length; j++) {
                                 // Checkbox
-                                let cb = document.createElement('input');
+                                /*let cb = document.createElement('input');
                                 cb.style = "width: 20px;height: 20px;";
                                 cb.type = "checkbox";
-                                li.appendChild(cb);
+                                li.appendChild(cb);*/
                                 // Text
                                 let p = document.createElement('p');
-                                list[j] = list[j].replace(",", " | ").replace(",", " || ");
+                                list[j] = list[j].replace(",", " | ").replace(/,.*kr/, "").replace(",", " || ");
                                 p.innerHTML = list[j]
                                 p.style = "display: inline-block"
                                 li.appendChild(p);
@@ -67,7 +68,7 @@
                         }
                     })
                     .catch( error => console.error(error));
-                setTimeout(update, 1000);
+                setTimeout(update, 2000);
             }
             update();
         </script>

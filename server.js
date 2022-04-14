@@ -1,17 +1,17 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const bcrypt = require('bcryptjs');
+const fs = require("fs");
 
 const app = express();
 const body_parser = bodyParser.text()
 const login_body_parser = bodyParser.urlencoded({ extended: true })
-const accounts = require("./accounts.json");
 
-let data = {}
+const data = require("./json/orders.json");
+const accounts = require("./json/accounts.json");
 let id = 0
 
 // HTML
-app.use(express.static('public'));
 app.get('/', function (req, res) {
    res.sendFile(__dirname + "/frontpage/index.html");
 })
@@ -25,7 +25,7 @@ app.get('/om_oss', function (req, res) {
    res.sendFile(__dirname + "/om_oss/index.html");
 })
 app.get('/login', function (req, res) {
-   res.sendFile(__dirname + "/login.html");
+   res.sendFile(__dirname + "/staff/login.html");
 })
 
 // CSS
@@ -80,6 +80,15 @@ app.get('/images/oss.png', function (req, res) {
 })
 
 // Icons
+app.get('/icons/GitHubIcon.png', function (req, res) {
+   res.sendFile(__dirname + "/icons/GitHubIcon.png");
+})
+app.get('/icons/ShoppingBasketIcon.png', function (req, res) {
+   res.sendFile(__dirname + "/icons/ShoppingBasketIcon.png");
+})
+app.get('/icons/CreditCardIcon.png', function (req, res) {
+   res.sendFile(__dirname + "/icons/CreditCardIcon.png");
+})
 app.get('/icons/PizzaIcon.png', function (req, res) {
    res.sendFile(__dirname + "/icons/PizzaIcon.png");
 })
@@ -88,9 +97,6 @@ app.get('/icons/PhoneIcon.png', function (req, res) {
 })
 app.get('/icons/AboutIcon.png', function (req, res) {
    res.sendFile(__dirname + "/icons/AboutIcon.png");
-})
-app.get('/icons/GitHubIcon.png', function (req, res) {
-   res.sendFile(__dirname + "/icons/GitHubIcon.png");
 })
 
 // Get Data
@@ -114,11 +120,19 @@ app.get('*', function (req, res) {
 app.post('/order_sent', body_parser, function (req, res) {
    data[id] = req.body;
    id++;
+   // Write to JSON
+   fs.writeFile("./json/orders.json", JSON.stringify(data), err => {
+      if (err) throw err;
+  });
 })
 app.post('/order_remove', body_parser, function (req, res) {
    removeData = req.body.split(',');
    if (removeData[0] !== "SeacretKeyForValidation") return;
    delete data[removeData[1]];
+   // Write to JSON
+   fs.writeFile("./json/orders.json", JSON.stringify(data), err => {
+      if (err) throw err;
+  });
 })
 app.post('/staff', login_body_parser, function (req, res) {
    password = req.body.password;
@@ -135,9 +149,10 @@ app.post('/staff', login_body_parser, function (req, res) {
    }
    if (!found) return res.end("Wrong username or password");
 
+   // Check password vs hash
    bcrypt.compare(password, accounts[username],
       async function (err, isMatch) {
-         if (isMatch) return res.sendFile(__dirname + "/staff.html");
+         if (isMatch) return res.sendFile(__dirname + "/staff/index.html");
          else return res.end("Wrong username or password");
       });
 })

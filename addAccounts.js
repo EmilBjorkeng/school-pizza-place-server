@@ -2,7 +2,7 @@ const { exit } = require("process");
 const bcrypt = require('bcryptjs');
 const fs = require("fs");
 
-const accounts = require("./accounts.json");
+const accounts = require("./json/accounts.json");
 const args = process.argv.slice(2);
 
 // There must be only 2 args
@@ -27,7 +27,7 @@ bcrypt.genSalt(10, function (err, Salt) {
             return console.log('Cannot encrypt');
         }
         accounts[args[0]] = hash;
-        fs.writeFile("accounts.json", JSON.stringify(accounts), err => {
+        fs.writeFile("./json/accounts.json", JSON.stringify(accounts), err => {
             if (err) throw err; 
             console.log("User added");
         });
