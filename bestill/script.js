@@ -248,15 +248,27 @@ function clearOrder() {
     }
 }
 
+// Order Cooldown
+var orderCooldown = false;
+function ordercooldown() {
+    orderCooldown = false
+}
+
 // Order
 function order() {
-    let string = "";
-    for (let i = 0; i < ShoppingCart.length; i++) {
-        string += "[" + ShoppingCart[i] + "],"
+    if (orderCooldown) {
+        alert("Woah! ikke så raskt der. Du har ikke lyst å fryse/crashe serveren vil du.")
+    } else {
+        let string = "";
+        for (let i = 0; i < ShoppingCart.length; i++) {
+            string += "[" + ShoppingCart[i] + "],"
+        }
+        fetch("/order_sent", {
+            method: "POST", 
+            body: "[" + string.substr(0, string.length - 1) + "]"
+        });
+        clearOrder();
+        orderCooldown = true;
+        setTimeout(ordercooldown, 4000);
     }
-    fetch("/order_sent", {
-        method: "POST", 
-        body: "[" + string.substr(0, string.length - 1) + "]"
-    });
-    clearOrder();
 }

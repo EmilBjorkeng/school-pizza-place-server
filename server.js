@@ -9,7 +9,8 @@ const login_body_parser = bodyParser.urlencoded({ extended: true })
 
 const data = require("./json/orders.json");
 const accounts = require("./json/accounts.json");
-let id = 0
+let id = parseInt(Object.keys(data)[Object.keys(data).length - 1]) + 1;
+if (!(id > -1)) id = 0;
 
 // HTML
 app.get('/', function (req, res) {
@@ -126,9 +127,18 @@ app.post('/order_sent', body_parser, function (req, res) {
   });
 })
 app.post('/order_remove', body_parser, function (req, res) {
+   // Split key from message data
    removeData = req.body.split(',');
    if (removeData[0] !== "SeacretKeyForValidation") return;
-   delete data[removeData[1]];
+   // join message data back together
+   let newData = "";
+   for (let i = 1; i < removeData.length; i++) newData += removeData[i] + ",";
+   // Split message data into an array
+   newData = newData.replace("[","").replace("]","").substr(0, newData.length - 3).split(",");
+   // Delete data
+   for (let i = 0; i < newData.length; i++) {
+      delete data[newData[i]]
+   };
    // Write to JSON
    fs.writeFile("./json/orders.json", JSON.stringify(data), err => {
       if (err) throw err;
