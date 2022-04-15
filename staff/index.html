@@ -40,41 +40,46 @@
                     .then( response => response.json())
                     .then( data => {
                         var count = Object.keys(data).length;
-                        var lists = document.getElementById('lists');
-                        lists.innerHTML = ""
-                        for (let i = 0; i < count; i++) {
-                            // Create tags
-                            let ul = document.createElement('ul');
-                            let list = data[Object.keys(data)[i]].substr(2, data[Object.keys(data)[i]].length - 4).split('],[');
-                            let li = document.createElement('li')
-                            // IDs
-                            li.innerHTML = '<p style="line-height: 0px;">id: ' + Object.keys(data)[i] + '</p><p style="line-height: 0px;">Pizzas:</p>';
-                            // Pizzas
-                            for (let j = 0; j < list.length; j++) {
-                                // Checkbox
-                                /*let cb = document.createElement('input');
-                                cb.style = "width: 20px;height: 20px;";
-                                cb.type = "checkbox";
-                                li.appendChild(cb);*/
-                                // Text
-                                let p = document.createElement('p');
-                                list[j] = list[j].replace(",", " | ").replace(/,.*kr/, "").replace(",", " || ");
-                                p.innerHTML = list[j]
-                                p.style = "display: inline-block"
-                                li.appendChild(p);
-                                // Linebreak
-                                let br = document.createElement('br');
-                                li.appendChild(br);
+                        if (!count) {
+                            let lists = document.getElementById('lists');
+                            lists.innerHTML = "Ingen bestillinger akkurat nå"
+                        } else {
+                            var lists = document.getElementById('lists');
+                            lists.innerHTML = ""
+                            for (let i = 0; i < count; i++) {
+                                // Create tags
+                                let ul = document.createElement('ul');
+                                let list = data[Object.keys(data)[i]].substr(2, data[Object.keys(data)[i]].length - 4).split('],[');
+                                let li = document.createElement('li')
+                                // IDs
+                                li.innerHTML = '<p style="line-height: 0px;">id: ' + Object.keys(data)[i] + '</p><p style="line-height: 0px;">Pizzas:</p>';
+                                // Pizzas
+                                for (let j = 0; j < list.length; j++) {
+                                    // Checkbox
+                                    /*let cb = document.createElement('input');
+                                    cb.style = "width: 20px;height: 20px;";
+                                    cb.type = "checkbox";
+                                    li.appendChild(cb);*/
+                                    // Text
+                                    let p = document.createElement('p');
+                                    list[j] = list[j].replace(",", " | ").replace(/,.*kr/, "").replace(",", " || ");
+                                    p.innerHTML = list[j]
+                                    p.style = "display: inline-block"
+                                    li.appendChild(p);
+                                    // Linebreak
+                                    let br = document.createElement('br');
+                                    li.appendChild(br);
+                                }
+                                // Button
+                                let button = document.createElement('button');
+                                button.style = "margin: 5px"
+                                button.innerHTML = "Order done";
+                                button.setAttribute("onclick", `orderDone(${Object.keys(data)[i]})`);
+                                li.appendChild(button);
+                                // Add to list
+                                ul.appendChild(li);
+                                lists.appendChild(ul);
                             }
-                            // Button
-                            let button = document.createElement('button');
-                            button.style = "margin: 5px"
-                            button.innerHTML = "Order done";
-                            button.setAttribute("onclick", `orderDone(${Object.keys(data)[i]})`);
-                            li.appendChild(button);
-                            // Add to list
-                            ul.appendChild(li);
-                            lists.appendChild(ul);
                         }
                     })
                     .catch( error => console.error(error));

@@ -152,7 +152,10 @@ function makeShoppingCart(string) {
                 let span = document.createElement('span');
                 span.innerHTML = list[i][j];
                 li.appendChild(span);
-                li.appendChild(document.createElement('br'));
+                // Newline
+                let br = document.createElement('br');
+                br.className = "removeWhenEmptyList";
+                li.appendChild(br);
             }
         }
         ul.appendChild(li);
@@ -162,10 +165,14 @@ function makeShoppingCart(string) {
     span.innerHTML = "Totalt: " + totalpris + "kr";
     span.className = "removeWhenEmptyList";
     ul.appendChild(span);
-    ul.appendChild(document.createElement('br'));
+    // Newline
+    let br = document.createElement('br');
+    br.className = "removeWhenEmptyList";
+    ul.appendChild(br);
     // Add Line
     let div = document.createElement('div');
     div.className = "line";
+    div.className = "removeWhenEmptyList";
     div.style = "margin-bottom: 5px;"
     ul.appendChild(div);
     // Add Buy Button
