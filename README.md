@@ -9,7 +9,7 @@ We split the tasks around: one got networking (setting up potential network for 
 ## How to download and run the server
 This section is mostly so I can remember what to do in case I have to clone the code again.
 > If you want to try it out yourself, you'll need node.js and npm installed. 
-> Then you clone the repository into a folder, open a terminal, and type `npm init`, `npm install --save express`, and `npm install bcryptjs`.
+> Then you clone the repository into a folder, open a terminal, and type `npm init` and `npm install --save express express-device bcryptjs`.
 
 > To start the server, just type `node server.js`. It should now be live at `localhost:8081` or `your.ip.here:8181` for other people on your network.
 

@@ -1,12 +1,16 @@
 const express = require('express');
+var device = require('express-device');
 const bodyParser = require('body-parser');
 const bcrypt = require('bcryptjs');
 const fs = require("fs");
 
+// Express and body parser
 const app = express();
+app.use(device.capture());
 const body_parser = bodyParser.text()
 const login_body_parser = bodyParser.urlencoded({ extended: true })
 
+// Load from json file
 const data = require("./json/orders.json");
 const accounts = require("./json/accounts.json");
 let id = parseInt(Object.keys(data)[Object.keys(data).length - 1]) + 1;
@@ -30,11 +34,20 @@ app.get('/login', function (req, res) {
 })
 
 // CSS
+app.get('/global/global.css', function (req, res) {
+   res.sendFile(__dirname + "/global/global.css");
+})
 app.get('/style.css', function (req, res) {
    res.sendFile(__dirname + "/frontpage/style.css");
 })
 app.get('/bestill/style.css', function (req, res) {
    res.sendFile(__dirname + "/bestill/style.css");
+})
+app.get('/bestill/orderlist.css', function (req, res) {
+   res.sendFile(__dirname + "/bestill/orderlist.css");
+})
+app.get('/bestill/pizzalist.css', function (req, res) {
+   res.sendFile(__dirname + "/bestill/pizzalist.css");
 })
 app.get('/kontakt_oss/style.css', function (req, res) {
    res.sendFile(__dirname + "/kontakt_oss/style.css");
@@ -104,6 +117,10 @@ app.get('/icons/AboutIcon.png', function (req, res) {
 app.get('/data', function (req, res) {
    res.writeHead(200, {'Content-Type': 'text/plain'})
    res.end(JSON.stringify(data))
+})
+
+app.get('/test', function (req, res) {
+   res.send(req.device.type)
 })
 
 // 404 Page

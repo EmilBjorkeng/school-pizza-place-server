@@ -2,7 +2,7 @@ const { exit } = require("process");
 const bcrypt = require('bcryptjs');
 const fs = require("fs");
 
-const accounts = require("./json/accounts.json");
+const accounts = require("../json/accounts.json");
 const args = process.argv.slice(2);
 
 // There must be only 2 args

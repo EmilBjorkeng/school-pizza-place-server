@@ -1,0 +1,66 @@
+#orderlist {
+    list-style: none;
+    float: right;
+    padding: 0;
+    height: 100%;
+    text-align: center;
+    margin-right: 10px;
+}
+
+#orderlist img {
+    filter: brightness(0);
+    width: 50px;
+}
+
+#orderlist li {
+    display: block;
+    margin: 5px;
+    max-width: 150px;
+    border-style: solid;
+    border-color: Black;
+    border-width: 2px;
+    padding: 13px;
+    padding-top: 20px;
+    border-radius: 5px;
+}
+
+#orderlist .removeButton {
+    border: none;
+    background-color: transparent;
+    position: absolute;
+    right: 16px;
+    transform: translate(0px, -13px);
+}
+
+#orderlist span.removeWhenEmptyList{
+    font-size: 20px;
+}
+
+#orderlist button.removeWhenEmptyList{
+    background-color: #848489;
+    border-style: solid;
+    border-radius: 2px;
+    border-color: #848489;
+    color: white;
+    padding: 3px 6px 3px 6px;
+    box-shadow: 1px 2px 5px black;
+    font-size: 20px;
+}
+
+#orderlist button.removeWhenEmptyList:hover{
+    background-color: #E8022C;
+    border-color: #E8022C;
+}
+
+#orderlist button img {
+    filter: brightness(0) invert(1);
+    width: 30px;
+    object-fit: cover;
+    height: 22px;
+    transform: translate(0px, 2px);
+    margin-left: 4px;
+}
+
+#orderlist button:hover {
+    cursor: pointer;
+}
