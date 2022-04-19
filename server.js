@@ -16,58 +16,77 @@ const accounts = require("./json/accounts.json");
 let id = parseInt(Object.keys(data)[Object.keys(data).length - 1]) + 1;
 if (!(id > -1)) id = 0;
 
+const defaultLang = "no";
+
 // HTML
-app.get('/', function (req, res) {
-   res.sendFile(__dirname + "/frontpage/index.html");
+app.get('/no', function (req, res) {
+   res.sendFile(__dirname + "/"+req.device.type + "/frontpage/no.html");
 })
-app.get('/bestill', function (req, res) {
-   res.sendFile(__dirname + "/bestill/index.html");
+app.get('/en', function (req, res) {
+   res.sendFile(__dirname + "/"+req.device.type + "/frontpage/en.html");
 })
-app.get('/kontakt_oss', function (req, res) {
-   res.sendFile(__dirname + "/kontakt_oss/index.html");
+app.get('/order', function (req, res) {
+   res.sendFile(__dirname + "/"+req.device.type + "/order/index.html");
 })
-app.get('/om_oss', function (req, res) {
-   res.sendFile(__dirname + "/om_oss/index.html");
+app.get('/contact_us', function (req, res) {
+   res.sendFile(__dirname + "/"+req.device.type + "/contact_us/index.html");
+})
+app.get('/about_us', function (req, res) {
+   res.sendFile(__dirname + "/"+req.device.type + "/about_us/index.html");
 })
 app.get('/login', function (req, res) {
-   res.sendFile(__dirname + "/staff/login.html");
+   res.sendFile(__dirname + "/"+req.device.type + "/staff/login.html");
 })
+
+// Redirect
+app.get('/', function (req, res) {
+   res.redirect('/'+defaultLang);
+})
+/*app.get('/home', function (req, res) {
+   res.redirect('/');
+})
+app.get('/hjem', function (req, res) {
+   res.redirect('/');
+})
+app.get('/bestill', function (req, res) {
+   res.redirect('/order');
+})
+app.get('/kontakt_oss', function (req, res) {
+   res.redirect('/contact_us');
+})
+app.get('/om_oss', function (req, res) {
+   res.redirect('/about_us');
+})*/
 
 // CSS
 app.get('/global/global.css', function (req, res) {
    res.sendFile(__dirname + "/global/global.css");
 })
 app.get('/style.css', function (req, res) {
-   res.sendFile(__dirname + "/frontpage/style.css");
+   res.sendFile(__dirname + "/"+req.device.type + "/frontpage/style.css");
 })
-app.get('/bestill/style.css', function (req, res) {
-   res.sendFile(__dirname + "/bestill/style.css");
+app.get('/order/style.css', function (req, res) {
+   res.sendFile(__dirname + "/"+req.device.type + "/order/style.css");
 })
-app.get('/bestill/orderlist.css', function (req, res) {
-   res.sendFile(__dirname + "/bestill/orderlist.css");
+app.get('/order/orderlist.css', function (req, res) {
+   res.sendFile(__dirname + "/"+req.device.type + "/order/orderlist.css");
 })
-app.get('/bestill/pizzalist.css', function (req, res) {
-   res.sendFile(__dirname + "/bestill/pizzalist.css");
+app.get('/order/pizzalist.css', function (req, res) {
+   res.sendFile(__dirname + "/"+req.device.type + "/order/pizzalist.css");
 })
-app.get('/kontakt_oss/style.css', function (req, res) {
-   res.sendFile(__dirname + "/kontakt_oss/style.css");
+app.get('/contact_us/style.css', function (req, res) {
+   res.sendFile(__dirname + "/"+req.device.type + "/contact_us/style.css");
 })
-app.get('/om_oss/style.css', function (req, res) {
-   res.sendFile(__dirname + "/om_oss/style.css");
+app.get('/about_us/style.css', function (req, res) {
+   res.sendFile(__dirname + "/"+req.device.type + "/about_us/style.css");
+})
+app.get('/404/style.css', function (req, res) {
+   res.sendFile(__dirname + "/"+req.device.type + "/404/style.css");
 })
 
 // JavaScript
-app.get('/script.js', function (req, res) {
-   res.sendFile(__dirname + "/frontpage/script.js");
-})
-app.get('/bestill/script.js', function (req, res) {
-   res.sendFile(__dirname + "/bestill/script.js");
-})
-app.get('/kontakt_oss/script.js', function (req, res) {
-   res.sendFile(__dirname + "/kontakt_oss/script.js");
-})
-app.get('/om_oss/script.js', function (req, res) {
-   res.sendFile(__dirname + "/om_oss/script.js");
+app.get('/order/script.js', function (req, res) {
+   res.sendFile(__dirname + "/"+req.device.type + "/order/script.js");
 })
 
 // Images
@@ -91,6 +110,9 @@ app.get('/images/GoogleMaps.png', function (req, res) {
 })
 app.get('/images/oss.png', function (req, res) {
    res.sendFile(__dirname + "/images/oss.png");
+})
+app.get('/images/PizzaMark.png', function (req, res) {
+   res.sendFile(__dirname + "/images/PizzaMark.png");
 })
 
 // Icons
@@ -119,19 +141,9 @@ app.get('/data', function (req, res) {
    res.end(JSON.stringify(data))
 })
 
-app.get('/test', function (req, res) {
-   res.send(req.device.type)
-})
-
 // 404 Page
-app.get('/404/style.css', function (req, res) {
-   res.sendFile(__dirname + "/404/style.css");
-})
-app.get('/images/PizzaMark.png', function (req, res) {
-   res.sendFile(__dirname + "/images/PizzaMark.png");
-})
 app.get('*', function (req, res) {
-   res.sendFile(__dirname + "/404/index.html");
+   res.sendFile(__dirname + "/"+req.device.type + "/404/index.html");
 })
 
 // POST

@@ -14,12 +14,12 @@ html, body {
 }
 
 /*The top menu bar*/
-#top-bar {
+.top-bar {
 	background-color: black;
 	overflow: hidden;
 }
 
-#top-bar a {
+.top-bar a {
 	padding: 10px 15px;
 	font-size: 17px;
 	text-align: center;
@@ -28,12 +28,12 @@ html, body {
 	color: white
 }
 
-#top-bar a:hover {
+.top-bar a:hover {
 	background-color: white;
 	color:black;
 }
 
-#top-bar a.active {
+.top-bar a.active {
 	background-color: darkslategrey;
 	color:white;
 }

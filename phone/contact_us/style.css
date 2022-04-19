@@ -1,0 +1,15 @@
+.Big-text {
+	text-align: center;
+	font-size: 100px;
+}
+
+.box {
+	width: 100%;
+	margin: 5px;
+	font-size: 50px;
+}
+
+.box img {
+	border-radius: 10px;
+	width: 500px;
+}

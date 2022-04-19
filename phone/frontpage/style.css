@@ -1,3 +1,7 @@
+html, body {
+	font-size: "75px";
+}
+
 .banner img {
 	width: 100%;
 }
@@ -22,12 +26,12 @@
 	text-align: center;
 }
 
-#phone-menu {
+.menu {
 	display: none;
 	font-size: 50px;
 	text-align: center;
 }
-#phone-menu a {
+.menu a {
 	background-color: red;
 	color: white;
 	display: block;
@@ -37,17 +41,8 @@
 	text-decoration: none;
 }
 
-#phone-menu img {
+.menu img {
 	height: 75px;
 	vertical-align: middle;
 	padding-right: 40px;
-}
-
-#github {
-	position: absolute;
-	top: 0;
-	right: 0;
-	filter: brightness(100);
-	width: 25px;
-	margin: 7px;
 }
