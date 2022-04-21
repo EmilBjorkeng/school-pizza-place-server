@@ -1,0 +1,10 @@
+/*Switch L and S in English*/
+.pizzalist input[class=Liten]:before {
+    content: 'S';
+}
+.pizzalist input[class=Medium]:before {
+    content: 'M';
+}
+.pizzalist input[class=Stor]:before {
+    content: 'L';
+}

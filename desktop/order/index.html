@@ -1,118 +1,34 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <meta charset="utf-8" />
-    	<meta name="viewport" content="initial-scale=1" />
-        <title>Pizza Plass AS</title>
-        <link rel="stylesheet", href="/global/global.css">
-        <link rel="stylesheet", type="text/css", href="/order/style.css">
-        <link rel="stylesheet", type="text/css", href="/order/orderlist.css">
-        <link rel="stylesheet", type="text/css", href="/order/pizzalist.css">
+        <title>Bestill</title>
+        <script>
+            function getCookie(cname) {
+                let name = cname + "=";
+                let decodedCookie = decodeURIComponent(document.cookie);
+                let ca = decodedCookie.split(';');
+                for(let i = 0; i < ca.length; i++) {
+                    let c = ca[i];
+                    while (c.charAt(0) == ' ') {
+                        c = c.substring(1);
+                    }
+                    if (c.indexOf(name) == 0) {
+                        return c.substring(name.length, c.length);
+                    }
+                }
+                return "";
+            }
+            cookie = getCookie("lang");
+            if (cookie) {
+                window.location = "/order/"+cookie; 
+            } else {
+                window.location = "/order/nb";
+            }
+        </script>
     </head>
     <body>
-        <div class="top-bar">
-			<a href="/">Hjem</a>
-			<a href="/bestill" class="active">Bestill</a> 
-			<a href="/kontakt_oss">Kontakt oss</a>
-			<a href="/om_oss">Om oss</a>
-		</div>
-        <ul id="orderlist"></ul>
-        <div class="pizzaWrapper">
-            <ul class="pizzalist">
-                <!--Plain Pizza-->
-                <li>
-                    <img src="/images/PlainPizza.jpeg">
-                    <!--Info-->
-                    <h3>Plain Pizza</h3>
-                    <span>Ost, Saus</span><br>
-                    <small style="color:gray">Hvete, Gluten, Melk</small><br>
-                    <div class="line"></div>
-                    <!--Size Selection-->
-                    <input type="checkbox" class="Liten" onclick="checkBox(0, 0)">
-                    <small>100kr</small>
-                    <input type="checkbox" class="Medium" onclick="checkBox(1, 0)">
-                    <small>125kr</small>
-                    <input type="checkbox" class="Stor" onclick="checkBox(2, 0)">
-                    <small>150kr</small><br>
-                    <!--Text box-->
-                    <span>Ekstra info:</span><br>
-                    <input type="text" class="input-box"><br>
-                    <!--Button and word limit-->
-                    <button onclick="addPizza(0)">Legg til Pizza</button>
-                    <span class="word-limit"></span>
-                </li>
-                <!--Pepperoni Pizza-->
-                <li>
-                    <img src="/images/PepperoniPizza.jpeg">
-                    <!--Info-->
-                    <h3>Pepperoni Pizza</h3>
-                    <span>Ost, Saus, Pepperoni</span><br>
-                    <small style="color:gray">Hvete, Gluten, Melk, Soya</small><br>
-                    <div class="line"></div>
-                    <!--Size Selection-->
-                    <input type="checkbox" class="Liten" onclick="checkBox(0, 1)">
-                    <small>110kr</small>
-                    <input type="checkbox" class="Medium" onclick="checkBox(1, 1)">
-                    <small>135kr</small>
-                    <input type="checkbox" class="Stor" onclick="checkBox(2, 1)">
-                    <small>160kr</small><br>
-                    <!--Text box-->
-                    <span>Ekstra info:</span><br>
-                    <input type="text" class="input-box" id="PepperoniPizzaExtra"><br>
-                    <!--Button and word limit-->
-                    <button onclick="addPizza(1)">Legg til Pizza</button>
-                    <span class="word-limit"></span>
-                </li>
-                <!--Taco Pizza-->
-                <li>
-                    <img src="/images/TacoPizza.jpeg">
-                    <!--Info-->
-                    <h3>Taco Pizza</h3>
-                    <span>Natchos, Oliven, Salat, Tomat</span><br>
-                    <small style="color:gray">Hvete, Gluten, Melk, Soya</small><br>
-                    <div class="line"></div>
-                    <!--Size Selection-->
-                    <input type="checkbox" class="Liten" onclick="checkBox(0, 2)">
-                    <small>120kr</small>
-                    <input type="checkbox" class="Medium" onclick="checkBox(1, 2)">
-                    <small>145kr</small>
-                    <input type="checkbox" class="Stor" onclick="checkBox(2, 2)">
-                    <small>170kr</small><br>
-                    <!--Text box-->
-                    <span>Ekstra info:</span><br>
-                    <input type="text" class="input-box" id="TacoPizzaExtra"><br>
-                    <!--Button and word limit-->
-                    <button onclick="addPizza(2)">Legg til Pizza</button>
-                    <span class="word-limit"></span>
-                </li>
-                <!--Special Pizza-->
-                <li>
-                    <img src="/images/SpecialPizza.jpeg">
-                    <!--Info-->
-                    <h3>Vår Spesial Pizza</h3>
-                    <span>Ost, Saus, Pepperoni, Paprika</span><br>
-                    <small style="color:gray">Hvete, Gluten, Melk, Soya</small><br>
-                    <div class="line"></div>
-                    <!--Size Selection-->
-                    <input type="checkbox" class="Liten" onclick="checkBox(0, 3)">
-                    <small>120kr</small>
-                    <input type="checkbox" class="Medium" onclick="checkBox(1, 3)">
-                    <small>145kr</small>
-                    <input type="checkbox" class="Stor" onclick="checkBox(2, 3)">
-                    <small>170kr</small><br>
-                    <!--Text box-->
-                    <span>Ekstra info:</span><br>
-                    <input type="text" class="input-box" id="SpecialPizzaExtra"><br>
-                    <!--Button and word limit-->
-                    <button onclick="addPizza(3)">Legg til Pizza</button>
-                    <span class="word-limit"></span>
-                </li>
-            </ul>
-        </div>
-        <div id="cookie">
-            <span>Vi bruker cookies for å huske handlekurven din. Cookiene er nødvendig for å siden skal fungere.</span><br>
-            <button onclick="cookieButton()">OK</button>
-        </div>
-        <script type="text/javascript", src="/order/script.js" defer></script>
+        <!--In case the redirect don't work-->
+        <a href="/nb">Home</a>
+        <a href="/order/nb">Click here</a>
     </body>
 </html>

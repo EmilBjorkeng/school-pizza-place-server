@@ -1,3 +1,8 @@
+/*For the small spot at the bottom*/
+body {
+	background-color: black;
+}
+
 .banner img {
 	width: 100%;
 }
@@ -20,13 +25,4 @@
 	width: 100%;
 	top: 20vw;
 	text-align: center;
-}
-
-.github {
-	position: absolute;
-	top: 0;
-	right: 0;
-	filter: brightness(100);
-	width: 25px;
-	margin: 7px;
 }
