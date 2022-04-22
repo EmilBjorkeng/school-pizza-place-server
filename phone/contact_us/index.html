@@ -1,24 +1,39 @@
-<!doctype html>
+<!DOCTYPE html>
 <html>
     <head>
-        <meta charset="utf-8" />
-    	<meta name="viewport" content="initial-scale=1" />
         <title>Kontakt oss</title>
-        <link rel="stylesheet", href="/global/global.css">
-        <link rel="stylesheet", href="/kontakt_oss/style.css">
+		<style>
+			body {
+				font-size: 50px;
+			}
+		</style>
+        <script>
+            function getCookie(cname) {
+                let name = cname + "=";
+                let decodedCookie = decodeURIComponent(document.cookie);
+                let ca = decodedCookie.split(';');
+                for(let i = 0; i < ca.length; i++) {
+                    let c = ca[i];
+                    while (c.charAt(0) == ' ') {
+                        c = c.substring(1);
+                    }
+                    if (c.indexOf(name) == 0) {
+                        return c.substring(name.length, c.length);
+                    }
+                }
+                return "";
+            }
+            let cookie = getCookie("lang");
+            if (cookie) {
+                window.location = "/contact_us/"+cookie; 
+            } else {
+                window.location = "/contact_us/nb";
+            }
+        </script>
     </head>
     <body>
-        <h1 class="Big-text">Kontakt oss</h1>
-        <div class="box">
-            <h3>Ring og bestill</h3>
-            <p>Det er synn fordi dette er bare en skole oppgave så vi har ingen telefon. Ikke at du kunne ha bestilt noe hvis vi hadde uansett. Nå kommer et fake telefonnummer slikt at siden ser mere ekte ut.</p>
-            <p>Telefon: 90838281</p>
-        </div>
-        <div class="box">
-            <h3>Lokalet</h3>
-            <p>Som sagt i ring og bestill så er dette kunn et skole prosjekt. Derfor har vi egentlig ikke noe lokalet på grunn av at pizza bedriften ikke finnes. Jeg kommer nå til å skrive en tilfeldig adresse og ha et tilfeldig google maps bilde</p>
-            <p>Langegata 64<br>6412 Navnpåby</p>
-            <img src="/images/GoogleMaps.png" alt="GoogleMaps">
-        </div>
+        <!--In case the redirect don't work-->
+        <a href="/nb">Home</a>
+        <a href="/contact_us/nb">Click here</a>
     </body>
 </html>

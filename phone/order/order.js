@@ -13,7 +13,9 @@ function makeShoppingCart(string) {
     // Cenvert to list
     let list = string.substr(1, string.length - 2).split('],[');
     let totalpris = 0;
+    let amt = 0;
     for (let i = 0; i < list.length; i++) {
+        amt++;
         list[i] = list[i].replace("[", "").replace("]", "").split(',').filter(notEmpty);
         totalpris += parseInt(list[i][2]);
         if (list[i].length > 4) {
@@ -27,11 +29,10 @@ function makeShoppingCart(string) {
         }
     }
     ShoppingCart = list;
+    document.getElementById('indicator').innerHTML = amt;
     // Edit HTML
     let ul = document.getElementById('orderlist');
-    let innerUL = `
-        <img src="/icons/ShoppingBasketIcon.png" class="removeWhenEmptyList">
-        <div class="line removeWhenEmptyList"></div>`;
+    let innerUL = "";
     for (let i = 0; i < list.length; i++) {
         let pizza = list[i][0];
         let size = list[i][1];
@@ -41,33 +42,36 @@ function makeShoppingCart(string) {
             size = allSizesEnglish[allSizes.indexOf(list[i][1])];
         }
         // Fix text length
-        let text = list[i][3].split(" ");
-        let fixesText = "";
-        for (let i = 0; i < text.length; i++) {
-            if (text[i].length > 19) {
-                text[i] = text[i].substr(0, 18) + " " + text[i].substr(18, text[i].length)
+        if (list[i][3])
+        {
+            let text = list[i][3].split(" ");
+            let fixesText = "";
+            for (let i = 0; i < text.length; i++) {
+                if (text[i].length > 30) {
+                    text[i] = text[i].substr(0, 29) + " " + text[i].substr(29, text[i].length)
+                }
+                fixesText += text[i];
             }
-            fixesText += text[i];
+            list[i][3] = fixesText;
         }
-        list[i][3] = fixesText;
         innerUL += `
             <li id="${i}">
             <button class="removeButton" onclick="removePizza(${i})"><b>X</b></button>
             <span>${pizza} Pizza</span>
-            <br class="removeWhenEmptyList">
+            <div class="v-line"></div>
             <span>${size}</span>
-            <br class="removeWhenEmptyList">
-            <span style="color: #747b84;">Pris: ${list[i][2]}</span>`;
-        if (list[i][3]) innerUL += `
-            <div class="line"></div>
-            <span>${list[i][3]}</span>`;
-        innerUL += '</li>';
+            <br>`;
+        if (list[i][3]) innerUL += `<div style="width: 80%;"><span>${list[i][3]}</span></div>`;
+        innerUL += `
+            <br>
+            <span style="color: #747b84;">Pris: ${list[i][2]}</span>
+            </li>
+            <div class="h-line"></div>`;
     }
     innerUL += `
-        <span class="removeWhenEmptyList">Totalt: ${totalpris}kr</span>
-        <br class="removeWhenEmptyList">
-        <div class="removeWhenEmptyList line" style="margin-bottom: 5px;"></div>
-        <button class="removeWhenEmptyList" onclick="order()">Bestill<img src="/icons/CreditCardIcon.png"></button>`;
+        <span>Totalt: ${totalpris}kr</span>
+        <br>
+        <button onclick="order()" class="order">Bestill</button>`;
     ul.innerHTML = innerUL;
 }
 
@@ -120,11 +124,8 @@ function removePizza(id) {
     if (string != '[]') makeShoppingCart(string);
     // Remove the cart list when its empty
     else {
-        let removeElements = document.getElementsByClassName('removeWhenEmptyList');
-        let length = removeElements.length;
-        for (let i = 0; i < length; i++) {
-            removeElements[0].remove()
-        }
+        document.getElementById('orderlist').innerHTML = "<h3>Currently Empty</h3>";
+        document.getElementById('indicator').innerHTML = "";
     }
 }
 
@@ -132,13 +133,6 @@ function removePizza(id) {
 function clearOrder() {
     ShoppingCart = [];
     document.cookie = "order=[]; path=/";
-    let ul = document.getElementById("orderlist");
-    while (ul.childElementCount > 2) {
-        ul.removeChild(ul.childNodes[2]);
-    }
-    let removeElements = document.getElementsByClassName('removeWhenEmptyList');
-    let length = removeElements.length;
-    for (let i = 0; i < length; i++) {
-        removeElements[0].remove()
-    }
+    document.getElementById('orderlist').innerHTML = "<h3>Currently Empty</h3>";
+    document.getElementById('indicator').innerHTML = "";
 }

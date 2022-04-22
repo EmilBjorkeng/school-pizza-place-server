@@ -4,23 +4,26 @@
         <meta charset="utf-8" />
     	<meta name="viewport" content="initial-scale=1" />
         <title>Om oss</title>
-        <link rel="stylesheet", href="/global/desktop.css">
+        <link rel="stylesheet", href="/global/phone.css">
         <link rel="stylesheet", href="/about_us/style.css">
     </head>
     <body>
-        <div class="top-bar">
-			<a href="/">Hjem</a>
-			<a href="/order">Bestill</a> 
-			<a href="/contact_us">Kontakt oss</a>
-			<a href="/about_us" class="active">Om oss</a>
+        <div class="top-menu">
+			<a class="hamburger-menu" onclick="dropdownMenu()">
+				<!--The divs are the hamburger-->
+				<div class="hamburger"></div>
+				<div class="hamburger"></div>
+				<div class="hamburger"></div>
+				<div class="dropdown-menu">
+					<a href="/">Hjem</a>
+					<a href="/order">Bestill</a> 
+					<a href="/contact_us">Kontakt oss</a>
+					<a href="/about_us">Om oss</a>
+				</div>
+			</a>
+			<div class="separator"></div>
+			<a class="lang" href="/about_us/en">NB</a>
 		</div>
-        <div class="lang-switch">
-			<a href="/about_us/nb" class="active">NB</a>
-			<a href="/about_us/en">EN</a>
-		</div>
-        <a href="https://github.com/EmilBjorkeng/school-pizza-place-server">
-			<img class="github" src="/icons/GitHubIcon.png">
-		</a>
         <img src="/images/oss.png" class="banner">
         <div class="box">
             <h2>Hvem er vi?</h2>
@@ -29,7 +32,8 @@
         <div class="box">
             <h2>Personene involvert</h2>
             <p>Vi er 3 personer som var involvert, slikt du kan se på bildet representert av noen profilbilder. Du har meg i midten, det er min github side som bled brukt. Jeg fikk oppgaven og lage backenden, JavaScripten og hjelpe til med front enden/lage noen sider. Så har vi personen til venstre, han fikk i oppgave å lage frontpagen/komme opp med ideene til de jeg fikset. Så har vi personen til høyre han fikk i oppgave og fikse ett nettverk til bedriften og dokumentere det han kunne og mase på vi andre at vi skal dokumentere...</p>
-        </div>
+        </div><br>
         <script type="text/javascript", src="/global/nb.js"></script>
+        <script type="text/javascript", src="/global/dropdown-menu.js"></script>
     </body>
 </html>

@@ -4,23 +4,26 @@
         <meta charset="utf-8" />
     	<meta name="viewport" content="initial-scale=1" />
         <title>About us</title>
-        <link rel="stylesheet", href="/global/desktop.css">
+        <link rel="stylesheet", href="/global/phone.css">
         <link rel="stylesheet", href="/about_us/style.css">
     </head>
     <body>
-        <div class="top-bar">
-			<a href="/">Home</a>
-			<a href="/order">Order</a> 
-			<a href="/contact_us">Contact us</a>
-			<a href="/about_us" class="active">About us</a>
+        <div class="top-menu">
+			<a class="hamburger-menu" onclick="dropdownMenu()">
+				<!--The divs are the hamburger-->
+				<div class="hamburger"></div>
+				<div class="hamburger"></div>
+				<div class="hamburger"></div>
+				<div class="dropdown-menu">
+					<a href="/">Home</a>
+					<a href="/order">Order</a> 
+					<a href="/contact_us">Contact us</a>
+					<a href="/about_us">About us</a>
+				</div>
+			</a>
+			<div class="separator"></div>
+			<a class="lang" href="/about_us/nb">EN</a>
 		</div>
-        <div class="lang-switch">
-			<a href="/about_us/nb">NB</a>
-			<a href="/about_us/en" class="active">EN</a>
-		</div>
-        <a href="https://github.com/EmilBjorkeng/school-pizza-place-server">
-			<img class="github" src="/icons/GitHubIcon.png">
-		</a>
         <img src="/images/oss.png" class="banner">
         <div class="box">
             <h2>Who are we?</h2>
@@ -28,7 +31,8 @@
         <div class="box">
             <h2>The people involved</h2>
             <p>We are 3 people that is involved, so you can se in the picture that is represented with our profile pictures. You have me in the middle, it is my GitHub page that was used for code hosting. I got tasked with making the back-end, the JavaScript and help with the front-end/make some of the pages. Then we have the person to the left, he was tasked with making the front-end/ coming up with the ideas to the once I fixed. Then we have the person to the right, he was tasked with making the network plans to the pizza place and document what he was abvle to as well as tell the rest of us that we needed to document what we had done...</p>
-        </div>
+        </div><br>
         <script type="text/javascript", src="/global/en.js"></script>
+        <script type="text/javascript", src="/global/dropdown-menu.js"></script>
     </body>
 </html>

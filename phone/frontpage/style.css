@@ -1,48 +1,59 @@
-html, body {
-	font-size: "75px";
-}
-
 .banner img {
-	width: 100%;
+	width: 95%;
+	border-radius: 10px;
+	margin-left: 2.5%;
+	margin-top: 2.5%;
+	margin-bottom: 10px;
 }
 
 .banner h1 {
-	font-size: 7vw;
+	font-size: 13vw;
 	text-shadow: -1px -1px 0 #FFFF, 1px -1px 0 #FFFF, -1px 1px 0 #FFFF, 1px 1px 0 #FFFF;
 	color: darkslategrey;
 	position: absolute;
 	width: 100%;
-	top: 10vw;
+	top: 40px;
 	text-align: center;
 }
 
 .banner h3 {
-	font-size: 3vw;
+	font-size: 6vw;
 	text-shadow: -1px -1px 0 rgb(0, 0, 0), 1px -1px 0 rgb(0, 0, 0), -1px 1px 0 rgb(0, 0, 0), 1px 1px 0 rgb(0, 0, 0);
 	color: white;
 	position: absolute;
 	width: 100%;
-	top: 20vw;
+	top: calc(20vw + 40px);
 	text-align: center;
 }
 
 .menu {
-	display: none;
-	font-size: 50px;
+	font-size: 20px;
 	text-align: center;
 }
 .menu a {
-	background-color: red;
+	background-color: #F60909;
 	color: white;
 	display: block;
-	margin: 20px;
-	padding: 40px;
-	border-radius: 20px;
+	margin: 5px 2.5% 5px 2.5%;
+	padding: 7px;
+	border-radius: 10px;
 	text-decoration: none;
+	width: calc(50% - 14px - (2.5% * 2));
+	float: left;
+}
+
+.menu .big {
+	width: calc(100% - 14px - (2.5% * 2));
+	font-size: 40px;
+	border-radius: 15px;
 }
 
 .menu img {
-	height: 75px;
+	height: 40px;
 	vertical-align: middle;
-	padding-right: 40px;
+	padding-right: 7px;
+}
+
+.menu img .big {
+	height: 75px;
 }

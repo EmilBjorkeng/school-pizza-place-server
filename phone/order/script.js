@@ -24,6 +24,11 @@ function checkBox(sizeIndex, pizzaIndex) {
     }
 }
 
+// Cookie popup button
+function cookieButton() {
+    document.getElementById('cookie').style.display = "none";
+}
+
 // Word counter
 for (let i = 0; i < allPizzas.length; i++) {
     let textBox = document.getElementsByClassName('input-box')[i];
@@ -61,18 +66,6 @@ function getCookie(cname) {
     return "";
 }
 
-// Don't show cookie popup again
-if (getCookie("seen") == "true") {
-    document.getElementById('cookie').style.display = "none";
-}
-// If there is no cookies 
-else {
-    var date = new Date(); 
-    date.setDate(date.getDate() + 30); // Expires after 30 days
-    date = date.toUTCString();
-    document.cookie = "seen=true; path=/; expires=" + date;
-}
-
 // Order Cooldown
 var orderCooldown = false;
 function ordercooldown() {
@@ -95,5 +88,14 @@ function order() {
         clearOrder();
         orderCooldown = true;
         setTimeout(ordercooldown, 4000);
+    }
+}
+
+function ShowShoppingList() {
+    dropdownmenu = document.getElementById('orderlist');
+    if (dropdownmenu.style.display == "block") {
+        dropdownmenu.style.display = "none";
+    } else {
+        dropdownmenu.style.display = "block";
     }
 }

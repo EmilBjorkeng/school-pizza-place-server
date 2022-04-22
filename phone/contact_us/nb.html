@@ -4,23 +4,26 @@
         <meta charset="utf-8" />
     	<meta name="viewport" content="initial-scale=1" />
         <title>Kontakt oss</title>
-        <link rel="stylesheet", href="/global/desktop.css">
+        <link rel="stylesheet", href="/global/phone.css">
         <link rel="stylesheet", href="/contact_us/style.css">
     </head>
     <body>
-        <div class="top-bar">
-			<a href="/">Hjem</a>
-			<a href="/order">Bestill</a>
-			<a href="/contact_us" class="active">Kontakt oss</a>
-			<a href="/about_us">Om oss</a>
+        <div class="top-menu">
+			<a class="hamburger-menu" onclick="dropdownMenu()">
+				<!--The divs are the hamburger-->
+				<div class="hamburger"></div>
+				<div class="hamburger"></div>
+				<div class="hamburger"></div>
+				<div class="dropdown-menu">
+					<a href="/">Hjem</a>
+					<a href="/order">Bestill</a> 
+					<a href="/contact_us">Kontakt oss</a>
+					<a href="/about_us">Om oss</a>
+				</div>
+			</a>
+			<div class="separator"></div>
+			<a class="lang" href="/contact_us/en">NB</a>
 		</div>
-        <div class="lang-switch">
-			<a href="/contact_us/nb" class="active">NB</a>
-			<a href="/contact_us/en">EN</a>
-		</div>
-        <a href="https://github.com/EmilBjorkeng/school-pizza-place-server">
-			<img class="github" src="/icons/GitHubIcon.png">
-		</a>
         <h1 class="Big-text">Kontakt oss</h1>
         <div class="box">
             <h3>Ring og bestill</h3>
@@ -32,7 +35,8 @@
             <p>Som sagt i ring og bestill så er dette kunn et skole prosjekt. Derfor har vi egentlig ikke noe lokalet på grunn av at pizza bedriften ikke finnes. Jeg kommer nå til å skrive en tilfeldig adresse og ha et tilfeldig google maps bilde</p>
             <p>Langegata 64<br>6412 Navnpåby</p>
             <img src="/images/GoogleMaps.png" alt="GoogleMaps">
-            <script type="text/javascript", src="/global/nb.js"></script>
         </div>
+        <script type="text/javascript", src="/global/nb.js"></script>
+        <script type="text/javascript", src="/global/dropdown-menu.js"></script>
     </body>
 </html>

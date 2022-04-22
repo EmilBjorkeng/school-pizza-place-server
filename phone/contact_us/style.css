@@ -1,15 +1,17 @@
 .Big-text {
 	text-align: center;
-	font-size: 100px;
+	font-size: 50px;
 }
 
 .box {
 	width: 100%;
 	margin: 5px;
-	font-size: 50px;
+	font-size: 25px;
 }
 
 .box img {
 	border-radius: 10px;
-	width: 500px;
+	width: 80%;
+	margin-bottom: 40px;
+	margin-left: 10px;
 }

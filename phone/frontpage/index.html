@@ -1,22 +1,38 @@
 <!DOCTYPE html>
 <html>
     <head>
-		<meta charset="utf-8" />
-    	<meta name="viewport" content="initial-scale=1" />
-		<title>Hovedside</title>
-		<link rel="stylesheet", href="/global/global.css">
-		<link rel="stylesheet", href="/style.css">
+        <title>Hovedside</title>
+		<style>
+			body {
+				font-size: 50px;
+			}
+		</style>
+        <script>
+            function getCookie(cname) {
+                let name = cname + "=";
+                let decodedCookie = decodeURIComponent(document.cookie);
+                let ca = decodedCookie.split(';');
+                for(let i = 0; i < ca.length; i++) {
+                    let c = ca[i];
+                    while (c.charAt(0) == ' ') {
+                        c = c.substring(1);
+                    }
+                    if (c.indexOf(name) == 0) {
+                        return c.substring(name.length, c.length);
+                    }
+                }
+                return "";
+            }
+            let cookie = getCookie("lang");
+            if (cookie) {
+                window.location = "/"+cookie; 
+            } else {
+                window.location = "/nb";
+            }
+        </script>
     </head>
     <body>
-		<div class="banner">
-			<img id="bannerImg" src="/images/PizzaBanner.jpeg" alt="Pizza Banner">
-			<h1 id="bannerText">Pizza Plass AS</h1>
-			<h3>Din lokale pizza plass</h3>
-		</div>
-		<div class="menu">
-			<a href="/bestill"><img src="/icons/PizzaIcon.png">Bestill</a> 
-			<a href="/kontakt_oss"><img src="/icons/PhoneIcon.png">Kontakt oss</a>
-			<a href="/om_oss"><img src="/icons/AboutIcon.png">Om oss</a>
-		</div>
+        <!--In case the redirect don't work-->
+        <a href="/nb">Click here</a>
     </body>
 </html>

@@ -1,0 +1,55 @@
+.shopping-list {
+    position: absolute;
+    left: 3px;
+    top: 0;
+    padding: 4px;
+}
+
+.shopping-list img {
+    width: 30px;
+}
+
+.shopping-list span {
+    color: white;
+}
+
+#orderlist {
+    display: none;
+    background-color: #EDF0F3;
+    position: absolute;
+    top: 20px;
+    left: 0;
+    list-style: none;
+    font-size: 20px;
+    padding-top: 7px;
+    width: 89%;
+}
+
+#orderlist h3 {
+    text-align: center;
+    margin-right: 90px;
+}
+
+#orderlist .v-line {
+    height: 14px;
+    width: 1px;
+    background-color: black;
+    display: inline-block;
+}
+
+#orderlist .h-line {
+    height: 1px;
+    width: 300px;
+    background-color: black;
+    margin-top: 7px;
+    margin-bottom: 10px;
+}
+
+#orderlist button {
+    transform: translate(0, -3px);
+}
+
+.order {
+    margin-top: 5px;
+    font-size: 17px;
+}

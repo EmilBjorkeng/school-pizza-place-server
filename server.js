@@ -34,8 +34,20 @@ app.get('/om_oss', function (req, res) {
 })
 
 // Global
-app.get('/global/global.css', function (req, res) {
-   res.sendFile(__dirname + "/global/global.css");
+app.get('/global/desktop.css', function (req, res) {
+   res.sendFile(__dirname + "/global/desktop.css");
+})
+app.get('/global/phone.css', function (req, res) {
+   res.sendFile(__dirname + "/global/phone.css");
+})
+app.get('/global/nb.js', function (req, res) {
+   res.sendFile(__dirname + "/global/nb.js");
+})
+app.get('/global/en.js', function (req, res) {
+   res.sendFile(__dirname + "/global/en.js");
+})
+app.get('/global/dropdown-menu.js', function (req, res) {
+   res.sendFile(__dirname + "/global/dropdown-menu.js");
 })
 
 // Frontpage

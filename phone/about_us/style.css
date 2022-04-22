@@ -1,9 +1,15 @@
 .banner {
-	width: 100%;
+	width: 95%;
+	border-radius: 10px;
+	margin-left: 2.5%;
+	margin-top: 2.5%;
 }
 
 .box {
-	width: 100%;
-	font-size: 50px;
-	margin: 7px;
+	width: calc(95% - 20px);
+	font-size: 20px;
+	background-color: #EDF0F3;
+	border-radius: 10px;
+	margin-left: 2.5%;
+	padding: 0 10px 0 10px;
 }

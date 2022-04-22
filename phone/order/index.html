@@ -1,7 +1,12 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>Om oss</title>
+        <title>Bestill</title>
+        <style>
+			body {
+				font-size: 50px;
+			}
+		</style>
         <script>
             function getCookie(cname) {
                 let name = cname + "=";
@@ -20,15 +25,15 @@
             }
             let cookie = getCookie("lang");
             if (cookie) {
-                window.location = "/about_us/"+cookie; 
+                window.location = "/order/"+cookie; 
             } else {
-                window.location = "/about_us/nb";
+                window.location = "/order/nb";
             }
         </script>
     </head>
     <body>
         <!--In case the redirect don't work-->
         <a href="/nb">Home</a>
-        <a href="/about_us/nb">Click here</a>
+        <a href="/order/nb">Click here</a>
     </body>
 </html>
