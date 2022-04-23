@@ -61,18 +61,6 @@ function getCookie(cname) {
     return "";
 }
 
-// Don't show cookie popup again
-if (getCookie("seen") == "true") {
-    document.getElementById('cookie').style.display = "none";
-}
-// If there is no cookies 
-else {
-    var date = new Date(); 
-    date.setDate(date.getDate() + 30); // Expires after 30 days
-    date = date.toUTCString();
-    document.cookie = "seen=true; path=/; expires=" + date;
-}
-
 // Order Cooldown
 var orderCooldown = false;
 function ordercooldown() {

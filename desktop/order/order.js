@@ -41,15 +41,18 @@ function makeShoppingCart(string) {
             size = allSizesEnglish[allSizes.indexOf(list[i][1])];
         }
         // Fix text length
-        let text = list[i][3].split(" ");
-        let fixesText = "";
-        for (let i = 0; i < text.length; i++) {
-            if (text[i].length > 19) {
-                text[i] = text[i].substr(0, 18) + " " + text[i].substr(18, text[i].length)
+        if (list[i][3])
+        {
+            let text = list[i][3].split(" ");
+            let fixesText = "";
+            for (let i = 0; i < text.length; i++) {
+                if (text[i].length > 30) {
+                    text[i] = text[i].substr(0, 29) + " " + text[i].substr(29, text[i].length)
+                }
+                fixesText += text[i];
             }
-            fixesText += text[i];
+            list[i][3] = fixesText;
         }
-        list[i][3] = fixesText;
         innerUL += `
             <li id="${i}">
             <button class="removeButton" onclick="removePizza(${i})"><b>X</b></button>
