@@ -70,3 +70,28 @@ html, body {
 	width: 25px;
 	margin: 7px;
 }
+
+/*The cookie popup*/
+#cookie {
+    position: fixed;
+    background-color: #EDF0F3;
+    width: 760px;
+    height: 105px;
+    padding: 7px;
+    bottom: 40px;
+    margin-left: 10%;
+    border-radius: 5px;
+	box-shadow: 2px 2px 5px black;
+}
+
+.cookieline {
+	height: 1px;
+	width: 99%;
+	margin-top: 5px;
+	margin-bottom: 5px;
+	background-color: black;
+}
+
+#cookie button {
+	margin-top: 3px;
+}

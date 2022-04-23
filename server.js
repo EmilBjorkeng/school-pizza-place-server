@@ -49,6 +49,9 @@ app.get('/global/en.js', function (req, res) {
 app.get('/global/dropdown-menu.js', function (req, res) {
    res.sendFile(__dirname + "/global/dropdown-menu.js");
 })
+app.get('/global/cookies.js', function (req, res) {
+   res.sendFile(__dirname + "/global/cookies.js");
+})
 
 // Frontpage
 app.get('/', function (req, res) {
