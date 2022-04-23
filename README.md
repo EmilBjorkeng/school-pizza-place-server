@@ -15,7 +15,7 @@ This section is mostly so I can remember what to do in case I have to clone the 
 
 ## Staff accounts
 I am no expert at safety, but I tried to add some level of encryption to the project so the fictional hackers who are trying to hack the pizza place don't get your password.
-> To add a staff accounts, run the addAccount.js `node addAccounts.js username password`. To remove a staff account, run the removeAccount.js `node removeAccounts.js username`. To login to your newly created account, go to `localhost:8081/login`
+> To add a staff accounts, run the addAccount.js `node accounts/addAccounts.js username password`. To remove a staff account, run the removeAccount.js `node accounts/removeAccounts.js username`. You could of course just cd into accounts and run the commands without the `accounts/` if you prefer that. To login to your newly created account, go to `localhost:8081/login`
 
 ### If you end up trying it yourself
 I should note that the local server was never made for anyone else to download and try it, so no guarantees. Tho I don't see any reason why it shouldn't work. The site is also in Norwegain because of the simple fact that we are Norwegian.
