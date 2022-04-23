@@ -1,9 +1,18 @@
+.wrapper {
+	width: 80%;
+	margin-left: 10%;
+	height: 100px;
+}
+
 .banner {
-	width: 100%;
+	width: 570px;
+	object-fit: cover;
+	height: 550px;
+	float: right;
+	border-radius: 15px;
 }
 
 .box {
-	width: 60%;
+	width: calc(80vw - 600px);
 	font-size: 25px;
-	margin: 7px;
 }
