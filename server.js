@@ -7,8 +7,8 @@ const fs = require("fs");
 // Express and body parser
 const app = express();
 app.use(device.capture());
-const body_parser = bodyParser.text()
-const login_body_parser = bodyParser.urlencoded({ extended: true })
+const body_parser = bodyParser.text();
+const login_body_parser = bodyParser.urlencoded({ extended: true });
 
 // Load from json file
 const data = require("./json/orders.json");
@@ -124,12 +124,6 @@ app.get('/about_us/style.css', function (req, res) {
    res.sendFile(__dirname + "/"+req.device.type + "/about_us/style.css");
 })
 
-// Other
-app.get('/login', function (req, res) {
-   res.sendFile(__dirname + "/staff/login.html");
-})
-
-
 // Images
 app.get('/images/PizzaBanner.jpeg', function (req, res) {
    res.sendFile(__dirname + "/images/PizzaBanner.jpeg");
@@ -175,11 +169,19 @@ app.get('/icons/PhoneIcon.png', function (req, res) {
 app.get('/icons/AboutIcon.png', function (req, res) {
    res.sendFile(__dirname + "/icons/AboutIcon.png");
 })
+app.get('/icons/UserPhotoIcon.jpeg', function (req, res) {
+   res.sendFile(__dirname + "/icons/UserPhotoIcon.jpeg");
+})
 
-// Get Data
-app.get('/data', function (req, res) {
-   res.writeHead(200, {'Content-Type': 'text/plain'})
-   res.end(JSON.stringify(data))
+// Staff Login
+app.get('/login', function (req, res) {
+   res.sendFile(__dirname + "/staff/login.html");
+})
+
+// Get Data if you have the API key
+app.get('/data/SeacretAPIKey', function (req, res) {
+   res.writeHead(200, {'Content-Type': 'text/plain'});
+   res.end(JSON.stringify(data));
 })
 
 // 404 Page
@@ -242,6 +244,6 @@ app.post('/staff', login_body_parser, function (req, res) {
 
 // Create Server
 var server = app.listen(8081, function () {
-    var port = server.address().port
-    console.log("Server listening at port %s", port)
+    var port = server.address().port;
+    console.log("Server listening at port %s", port);
 })

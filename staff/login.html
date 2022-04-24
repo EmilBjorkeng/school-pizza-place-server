@@ -4,34 +4,56 @@
         <meta charset="utf-8" />
     	<meta name="viewport" content="initial-scale=1" />
         <title>Login</title>
-        <link rel="stylesheet", href="/global/global.css">
         <style>
             .wrapper {
                 height: 100%;
                 width: 100%;
+                text-align: center;
             }
-            .wrapper form {
+            .inner-box {
+                background-color: #DCE0E4;
                 margin: auto;
-                width: 260px;
-                height: 86px;
+                padding: 10px;
+                border-radius: 5px;
+                font-size: 20px;
+                width: 240px;
+                text-align: left;
                 transform: translateY(calc(50vh - 86px));
+                box-shadow: 1px 2px 6px black;
             }
-            .wrapper input {
+            .inner-box input, button {
                 border-width: 2px;
                 border-radius: 3px;
+            }
+            button {
+                transform: translate(182px, -21px);
+                position: absolute;
+            }
+            button:hover {
+                border-color: black;
             }
         </style>
     </head>
     </head>
     <body>
         <div class="wrapper">
-            <form action="/staff" id="login" method="post">
-                <label for="username">Username:</label><br>
-                <input type="text" id="username" name="username" /><br>
-                <label for="password">Password:</label><br>
-                <input type="password" id="password" name="password" />
-                <input type = "submit" name="submit" value="Submit" />
-            </form>
+            <div class="inner-box">
+                <form id="login" method="post">
+                    <label for="username">Username:</label><br>
+                    <input type="text" id="username" name="username" /><br>
+                    <label for="password">Password:</label><br>
+                    <input type="password" id="password" name="password"/>
+                </form>
+                <button onclick="submit()">Submit</button>
+            </div>
         </div>
+        <script>
+            function submit() {
+                let form = document.getElementById('login');
+                let username = document.getElementById('username');
+                form.action = "/staff?" + username.value;
+                form.submit();
+            }
+        </script>
     </body>
 </html>
