@@ -49,9 +49,9 @@ function makeShoppingCart(string) {
                 if (text[i].length > 30) {
                     text[i] = text[i].substr(0, 29) + " " + text[i].substr(29, text[i].length)
                 }
-                fixesText += text[i];
+                fixesText += text[i] + " ";
             }
-            list[i][3] = fixesText;
+            list[i][3] = fixesText.substr(0, fixesText.length - 1);
         }
         innerUL += `
             <li id="${i}">

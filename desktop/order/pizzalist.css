@@ -1,8 +1,10 @@
 .pizzaWrapper {
-    height: 100%;
+    height: calc(100% - 55px);
     width: 100%;
     vertical-align: middle;
     margin-top: 20px;
+    margin: 0;
+    padding-top: 15px;
 }
 
 .pizzalist {
