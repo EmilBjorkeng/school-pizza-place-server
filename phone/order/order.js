@@ -52,7 +52,7 @@ function makeShoppingCart(string) {
                 }
                 fixesText += text[i];
             }
-            list[i][3] = fixesText;
+            list[i][3] = fixesText + " ";
         }
         innerUL += `
             <li id="${i}">
