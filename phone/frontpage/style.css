@@ -44,7 +44,7 @@
 
 .menu .big {
 	width: calc(100% - 14px - (2.5% * 2));
-	font-size: 40px;
+	font-size: 35px;
 	border-radius: 15px;
 }
 
